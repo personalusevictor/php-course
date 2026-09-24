@@ -1,6 +1,6 @@
 <?php
 
-$dinero = 1000;
+$dinero = (float) 1000;
 $historial = [];
 $apuestasPendientes = [];
 
@@ -121,24 +121,25 @@ function menuAltoBajo(): string {
 }
 
 // Pedir Apuesta - Función para pedir la cantidad a apostar
-function pedirApuesta(int $dinero): int {
+function pedirApuesta(float $dinero): float {
     while (true) {
 
-        $entrada = readline("Cantidad a apostar: ");
+        $entrada = trim(readline("Cantidad a apostar: "));
+        $entrada = str_replace(',', '.', $entrada);
 
-        if (!ctype_digit($entrada)) {
-            echo "Introduce un número válido.\n";
+        if (!preg_match('/^\d+(\.\d{1,2})?$/', $entrada)) {
+            echo "Introduce un número válido con máximo 2 decimales.\n";
             continue;
         }
 
-        $apuesta = (int) $entrada;
+        $apuesta = (float) $entrada;
 
         if ($apuesta < 1 || $apuesta > $dinero) {
             echo "La apuesta debe estar entre 1 y {$dinero}$.\n";
             continue;
         }
 
-        return $apuesta;
+        return round($apuesta, 2);
     }
 }
 
@@ -461,7 +462,7 @@ while ($dinero > 0) {
             break;
         case 1:
             $numero = pedirNumero();
-            $cantidad = pedirApuesta($dinero);
+            $cantidad = (float) pedirApuesta($dinero);
             $apuestasPendientes[] = [
                 'tipo' => 'número',
                 'eleccion' => $numero,
