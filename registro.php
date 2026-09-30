@@ -93,51 +93,53 @@
 
     <div>
         <?php
-            $error = "";
-            $formFields = [
-                "name" => "nombre", 
-                "surname" => "apellidos", 
-                "email" => "correo", 
-                "fnac" => "fecha de nacimiento",
-                "password" => "contraseña", 
-                "rPassword" => "contraseña repetida", 
-                "gender" => "género",
-                "privacy" => "políticas de privacidad"
-            ];
-            $formRequired = ["email", "password", "rPassword", "gender", "privacy"];
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $error = "";
+                $formFields = [
+                    "name" => "nombre", 
+                    "surname" => "apellidos", 
+                    "email" => "correo", 
+                    "fnac" => "fecha de nacimiento",
+                    "password" => "contraseña", 
+                    "rPassword" => "contraseña repetida", 
+                    "gender" => "género",
+                    "privacy" => "políticas de privacidad"
+                ];
+                $formRequired = ["email", "password", "rPassword", "gender", "privacy"];
 
-            foreach ($formRequired as $id) {
-                if (!isset($_POST[$id]) || trim($_POST[$id]) === "") {
-                    $error .= "Error: no has rellenado o aceptado el/la " . $formFields[$id] . "<br>";
-                }
-            }
-
-            if (isset($_POST["password"]) && isset($_POST["rPassword"]) && $_POST["password"] !== "" && $_POST["rPassword"] !== "") {
-                if ($_POST["rPassword"] !== $_POST["password"]) {
-                    $error .= "Error: las contraseñas no corresponden <br>";
-                }
-            }
-
-            if (isset($_POST["fnac"]) && $_POST["fnac"] !== "") {
-                $fechaNacimiento = new DateTime($_POST["fnac"]);
-                $hoy = new DateTime();
-                $edad = $hoy->diff($fechaNacimiento)->y;
-
-                if ($edad < 14) {
-                    $error .= "Error: Debes tener al menos 14 años para registrarte <br>";
-                }
-            }
-
-            if ($error == "") {
-                echo '<ul>';
-                foreach ($_POST as $id => $value) {
-                    if (isset($formFields[$id])) {
-                        echo '<li>' . ucfirst($formFields[$id]) . ": " . $value . '</li>';
+                foreach ($formRequired as $id) {
+                    if (!isset($_POST[$id]) || trim($_POST[$id]) === "") {
+                        $error .= "Error: no has rellenado o aceptado el/la " . $formFields[$id] . "<br>";
                     }
                 }
-                echo '</ul>';
-            } else {
-                echo $error;
+
+                if (isset($_POST["password"]) && isset($_POST["rPassword"]) && $_POST["password"] !== "" && $_POST["rPassword"] !== "") {
+                    if ($_POST["rPassword"] !== $_POST["password"]) {
+                        $error .= "Error: las contraseñas no corresponden <br>";
+                    }
+                }
+
+                if (isset($_POST["fnac"]) && $_POST["fnac"] !== "") {
+                    $fechaNacimiento = new DateTime($_POST["fnac"]);
+                    $hoy = new DateTime();
+                    $edad = $hoy->diff($fechaNacimiento)->y;
+
+                    if ($edad < 14) {
+                        $error .= "Error: Debes tener al menos 14 años para registrarte <br>";
+                    }
+                }
+
+                if ($error == "") {
+                    echo '<ul>';
+                    foreach ($_POST as $id => $value) {
+                        if (isset($formFields[$id])) {
+                            echo '<li>' . ucfirst($formFields[$id]) . ": " . $value . '</li>';
+                        }
+                    }
+                    echo '</ul>';
+                } else {
+                    echo $error;
+                }
             }
         ?>
     </div>
