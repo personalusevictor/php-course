@@ -1,0 +1,481 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #082b03;
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+header {
+  background: #061f02;
+  border-bottom: 2px solid #c9a94e;
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #d6b65a;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.saldo {
+  background: #123d0b;
+  border: 1px solid #c9a94e;
+  border-radius: 8px;
+  padding: 12px 20px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.saldo span {
+  color: #ddd;
+}
+
+.saldo strong {
+  color: #f0ca5b;
+  font-size: 20px;
+}
+
+.mensaje {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 14px 20px;
+
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mensaje.exito {
+  background: #174d19;
+  border: 1px solid #4caf50;
+  color: #b9f6bc;
+}
+
+.mensaje.error {
+  background: #5a1515;
+  border: 1px solid #d9534f;
+  color: #ffb5b5;
+}
+
+.mensaje.info {
+  background: #143d52;
+  border: 1px solid #4fa3d1;
+  color: #b9e5ff;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 25px;
+}
+
+.zona-ruleta {
+  background: #0d3508;
+  border: 1px solid #806b32;
+  border-radius: 12px;
+  padding: 25px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zona-ruleta h2,
+.panel-apuestas h2,
+.apuestas-pendientes h2,
+.resultado-ronda h2,
+.historial h2 {
+  color: #d6b65a;
+  margin-bottom: 20px;
+}
+
+.ruleta {
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #d6b65a 0%,
+    #b28a32 20%,
+    #111 21%,
+    #222 62%,
+    #b28a32 63%,
+    #d6b65a 69%,
+    #111 70%
+  );
+
+  border: 8px solid #d6b65a;
+
+  box-shadow:
+    0 0 0 5px #513e16,
+    0 10px 25px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.ruleta::before {
+  content: "";
+  position: absolute;
+
+  width: 80%;
+  height: 80%;
+
+  border-radius: 50%;
+  border: 2px solid #d6b65a;
+}
+
+.ruleta-centro {
+  width: 85px;
+  height: 85px;
+
+  border-radius: 50%;
+
+  background: #111;
+  border: 5px solid #d6b65a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.ruleta-centro span {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.resultado {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.resultado h3 {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.numero-resultado {
+  width: 70px;
+  height: 70px;
+
+  margin: auto;
+
+  border-radius: 10px;
+
+  background: #111;
+  border: 2px solid #d6b65a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.resultado p {
+  margin-top: 8px;
+  color: #ccc;
+}
+
+.panel-apuestas {
+  background: #0d3508;
+  border: 1px solid #806b32;
+  border-radius: 12px;
+  padding: 25px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.tipo-apuesta {
+  background: #102d0c;
+
+  border: 1px solid #315329;
+  border-radius: 8px;
+
+  padding: 18px;
+  margin-bottom: 15px;
+}
+
+.tipo-apuesta h3 {
+  color: #e0c66d;
+  margin-bottom: 14px;
+}
+
+.tipo-apuesta form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.tipo-apuesta label {
+  color: #ddd;
+}
+
+.tipo-apuesta input[type="radio"] {
+  margin-right: 5px;
+}
+
+select,
+input[type="number"] {
+  background: #071b04;
+  color: white;
+
+  border: 1px solid #806b32;
+  border-radius: 5px;
+
+  padding: 9px 10px;
+
+  outline: none;
+}
+
+select:focus,
+input[type="number"]:focus {
+  border-color: #d6b65a;
+  box-shadow: 0 0 5px rgba(214, 182, 90, 0.4);
+}
+
+input[type="number"] {
+  width: 110px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+
+  padding: 9px 16px;
+
+  background: #c49b35;
+  color: #111;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #e1bd5a;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.apuestas-pendientes,
+.resultado-ronda,
+.historial {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 25px auto;
+
+  background: #0d3508;
+  border: 1px solid #806b32;
+  border-radius: 12px;
+
+  padding: 25px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.apuestas-pendientes > p {
+  color: #aaa;
+}
+
+.lista-apuestas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.apuesta {
+  background: #102d0c;
+  border: 1px solid #315329;
+  border-radius: 6px;
+
+  padding: 12px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apuesta-tipo {
+  color: #d6b65a;
+  font-weight: bold;
+}
+
+.apuesta-eleccion {
+  color: white;
+}
+
+.apuesta-cantidad {
+  color: #76d275;
+  font-weight: bold;
+}
+
+.apuestas-pendientes form {
+  margin-top: 20px;
+}
+
+.boton-girar {
+  width: 100%;
+
+  padding: 16px;
+
+  background: #b89132;
+  color: #fff;
+
+  border: 2px solid #d6b65a;
+  border-radius: 8px;
+
+  font-size: 18px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+.boton-girar:hover {
+  background: #d0aa45;
+  box-shadow: 0 0 15px rgba(214, 182, 90, 0.35);
+}
+
+.resultado-ronda {
+  border-color: #d6b65a;
+}
+
+.resultado-ronda p {
+  padding: 8px 0;
+  border-bottom: 1px solid #294824;
+  color: #ddd;
+}
+
+.resultado-ronda strong {
+  color: #f0ca5b;
+}
+
+.resultado-ronda p:last-child {
+  border-bottom: none;
+}
+
+.historial {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.historial h2 {
+  grid-column: 1 / -1;
+}
+
+.historial > p {
+  grid-column: 1 / -1;
+  color: #aaa;
+}
+
+.ronda-historial {
+  background: #102d0c;
+
+  border: 1px solid #315329;
+  border-radius: 8px;
+
+  padding: 15px;
+}
+
+.ronda-historial h3 {
+  color: #d6b65a;
+  margin-bottom: 10px;
+}
+
+.ronda-historial p {
+  color: #ccc;
+  margin: 5px 0;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .historial {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 15px 20px;
+
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  main,
+  .apuestas-pendientes,
+  .resultado-ronda,
+  .historial,
+  .mensaje {
+    width: 94%;
+  }
+
+  .ruleta {
+    width: 230px;
+    height: 230px;
+  }
+
+  .tipo-apuesta form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  select,
+  input[type="number"],
+  .tipo-apuesta button {
+    width: 100%;
+  }
+
+  .historial {
+    grid-template-columns: 1fr;
+  }
+}
