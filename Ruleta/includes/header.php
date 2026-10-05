@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <img src="memoji.png" alt="Ruleta Logo" />
+        <img src="public/memoji.png" alt="Ruleta Logo" />
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>

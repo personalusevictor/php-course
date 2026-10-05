@@ -308,16 +308,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <header>
-        <h1>Ruleta Europea</h1>
-        <div class="saldo">
-            <span>Saldo:</span>
-            <strong>
-                <?php echo number_format($dinero, 2, ',', '.'); ?> €
-            </strong>
-        </div>
-
-    </header>
+    <?php include_once 'includes/header.php'; ?>
     <?php if ($mensaje !== null): ?>
     <div class="mensaje <?php echo $tipoMensaje; ?>">
         <?php echo htmlspecialchars($mensaje); ?>
