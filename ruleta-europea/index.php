@@ -296,7 +296,7 @@ $last = $history[0] ?? null;
                 <div><span>En mesa</span><b id="pendingTotal"><?= money(currentStake()) ?></b></div>
                 <div class="money-note"><span>Capital total</span><b id="totalMoney"><?= money($dinero + currentStake()) ?></b></div>
                 <button id="spin" class="primary">Girar ruleta</button><button id="clear" class="secondary">Retirar todas</button>
-                <button class="money-link" href="finanzas.php">Ingresar / retirar dinero</button>
+                <a class="money-link" href="finanzas.php">Ingresar / retirar dinero</a>
             </aside>
         </section>
 
