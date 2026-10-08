@@ -11,11 +11,12 @@ const RED_NUMBERS = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 
 function color(int $number): string {
     return $number === 0 ? 'verde' : (in_array($number, RED_NUMBERS, true) ? 'rojo' : 'negro');
 }
-
+//i  hate niggers
 function paridad(int $number): ?string {
     return $number === 0 ? null : ($number % 2 === 0 ? 'par' : 'impar');
 }
-
+//im viktor
+//im gaylord
 function docena(int $number): ?string {
     return $number < 1 ? null : ($number <= 12 ? 'primera' : ($number <= 24 ? 'segunda' : ($number <= 36 ? 'tercera' : null)));
 }
