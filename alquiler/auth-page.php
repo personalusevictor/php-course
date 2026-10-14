@@ -1,15 +1,24 @@
 <?php
-session_start();
-require_once 'connecion.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+session_start();
+require_once 'connection.php';
+
+if(isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 
 function getErrors(string $codigo) {
     $errors = [
                 "db_error" => "Error al establecer una conexión con la base de datos.",
                 "login_invalid_credentials" => "El correo electrónico o contraseña son incorrectos.",
                 "login_role" => "Acceso no autorizado. Rol de usuario no reconocido.",
+                "register_already_exists" => "Las credenciales introducidas ya están registradas.",
+                "file_not_upload" => "El archivo no se ha subido correctamente o no lo has subido.",
             ];
-
     printErrors($errors[$codigo] ?? "Ha ocurrido un error desconocido.");
 }
 
@@ -47,44 +56,63 @@ function login(PDO $conn, string $email_login, string $password_login) {
     exit();
 }
 
-function register(PDO $conn, string $dni_nie_login, string $name_login, string $surname_login, string $email_login, string $password_login, string $birth_date_login, string $driver_license_file) {
-    $password_login = password_hash($password_login, PASSWORD_DEFAULT);
+function register(PDO $conn, string $dni_nie_register, string $name_register, string $surname_register, string $email_register, string $password_register, string $birth_date_register) {
+    
+    try {
+        $stmt = $conn->prepare("SELECT u.email, c.dni_nie FROM users u LEFT JOIN customers c ON u.id = c.users_id WHERE u.email = :email OR c.dni_nie = :dni_nie");
+        $stmt->execute([":email" => $email_register, ":dni_nie" => $dni_nie_register]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if(!empty($user)) {
+            getErrors("register_already_exists");
+            return;
+        }
+
+    } catch (PDOException $e) {
+        getErrors("db_error");
+    }
+
+    if (!isset($_FILES['driver_license_file']) || $_FILES['driver_license_file']['error'] !== UPLOAD_ERR_OK) {
+        getErrors("file_not_upload");
+        return;
+    }
+    
+    $tmp_name = $_FILES['driver_license_file']['tmp_name'];
+    $unique_name_file = 'license_' . uniqid() . '.webp';
+    $path = 'uploads/' . $unique_name_file;
+
+    if(!move_uploaded_file($tmp_name, $path)) {
+        getErrors("file_not_upload");
+        return;
+    }
+
+    $password_register = password_hash($password_register, PASSWORD_DEFAULT);
 
     try {
         $stmt = $conn->prepare("INSERT INTO users(email, password, role_id) VALUES(:email, :password, :role_id)");
         $stmt->execute([
-                ":email" => $email_login,
-                ":password" => $password_login,
+                ":email" => $email_register,
+                ":password" => $password_register,
                 ":role_id" => 2,
             ]);
-        $user_id_login = $conn->lastInsertId();
+        $user_id_register = $conn->lastInsertId();
 
-        if (isset($_FILES['driver_license_file']) && $_FILES['driver_license_file']['error'] === UPLOAD_ERR_OK) {
-            $tmp_name = $_FILES['driver_license_file']['temp_name'];
-            $unique_name_file = 'license_' . uniqid() . '.webp';
-            $path = 'uploads/' . $unique_name_file;
-
-            if (move_uploaded_file($tmp_name, $path)) {
-                $stmt = $conn->prepare("INSERT INTO customers(dni_nie, name, surname, users_id, birth_date, driver_license) VALUES(:dni_nie, :name, :surname, :user_id, :birth_date, :driver_license)");
-                $stmt->execute([
-                    ":dni_nie" => $dni_nie_login,
-                    ":name" => $name_login,
-                    ":surname" => $surname_login,
-                    ":user_id" => $user_id_login,
-                    ":birth_date" => $birth_date_login,
-                    ":driver_license" => $path,
-                ]);
-            }
-        }
+        $stmt = $conn->prepare("INSERT INTO customers(dni_nie, name, surname, users_id, birth_date, driver_license) VALUES(:dni_nie, :name, :surname, :user_id, :birth_date, :driver_license)");
+            $stmt->execute([
+                ":dni_nie" => $dni_nie_register,
+                ":name" => $name_register,
+                ":surname" => $surname_register,
+                ":user_id" => $user_id_register,
+                ":birth_date" => $birth_date_register,
+                ":driver_license" => $path,
+            ]);
     } catch(PDOException $e) {
         getErrors("db_error");
     }
-
-
 }
 
 if(isset($_POST['submit-register'])) 
-    register($conn, $_POST['dni_nie'], $_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password'], $_POST['birth_date'], $_POST['driver_license_file']);
+    register($conn, $_POST['dni_nie'], $_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password'], $_POST['birth_date']);
 
 if(isset($_POST['submit-login'])) 
     login($conn, $_POST['email'], $_POST['password']);
