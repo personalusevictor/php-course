@@ -8,12 +8,12 @@ if(isset($_SESSION['user_id'])) {
     exit();
 }
 
-function login(PDO $conn, string $email_login, string $password_login){
+function login(PDO $conn, array $login){
     $users = [];
 
     try {
         $stmt = $conn->prepare("SELECT id, email, password, role_id FROM users WHERE email = :email");
-        $stmt->execute([':email' => $email_login]);
+        $stmt->execute([':email' => $login['email']]);
         $users = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt = null;
@@ -22,7 +22,7 @@ function login(PDO $conn, string $email_login, string $password_login){
         return;
     }
 
-    if(!$users || !password_verify($password_login, $users['password'])) {
+    if(!$users || !password_verify($login['password'], $users['password'])) {
         getErrors("auth_invalid_credentials");
         return;
     }
@@ -41,12 +41,12 @@ function login(PDO $conn, string $email_login, string $password_login){
     exit();
 }
 
-function register(PDO $conn, string $dni_nie_register, string $name_register, string $surname_register, string $email_register, string $password_register, string $birth_date_register){
+function register(PDO $conn, array $register){
 
-    $birth_date_obj = DateTime::createFromFormat('Y-m-d', $birth_date_register);
+    $birth_date_obj = DateTime::createFromFormat('Y-m-d', $register['birth_date']);
     $today = new DateTime();
 
-    if(!$birth_date_obj || $birth_date_obj->format('Y-m-d') !== $birth_date_register) {
+    if(!$birth_date_obj || $birth_date_obj->format('Y-m-d') !== $register['birth_date']) {
         getErrors("validation_birth_date");
         return;
     }
@@ -60,7 +60,7 @@ function register(PDO $conn, string $dni_nie_register, string $name_register, st
 
     try {
         $stmt = $conn->prepare("SELECT u.email, c.dni_nie FROM users u LEFT JOIN customers c ON u.id = c.users_id WHERE u.email = :email OR c.dni_nie = :dni_nie");
-        $stmt->execute([":email" => $email_register, ":dni_nie" => $dni_nie_register]);
+        $stmt->execute([":email" => $register['email'], ":dni_nie" => $register['dni_nie']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt = null;
@@ -125,32 +125,32 @@ function register(PDO $conn, string $dni_nie_register, string $name_register, st
         return;
     }
 
-    $password_register = password_hash($password_register, PASSWORD_DEFAULT);
+    $register['password'] = password_hash($register['password'], PASSWORD_DEFAULT);
 
     try {
         $stmt = $conn->prepare("INSERT INTO users(email, password, role_id) VALUES(:email, :password, :role_id)");
         $stmt->execute([
-            ":email" => $email_register,
-            ":password" => $password_register,
+            ":email" => $register['email'],
+            ":password" => $register['password'],
             ":role_id" => 2,
         ]);
-        $user_id_register = $conn->lastInsertId();
+        $register_id = $conn->lastInsertId();
 
         $stmt = null;
 
         $stmt = $conn->prepare("INSERT INTO customers(dni_nie, name, surname, users_id, birth_date, driver_license) VALUES(:dni_nie, :name, :surname, :user_id, :birth_date, :driver_license)");
         $stmt->execute([
-            ":dni_nie" => $dni_nie_register,
-            ":name" => $name_register,
-            ":surname" => $surname_register,
-            ":user_id" => $user_id_register,
-            ":birth_date" => $birth_date_register,
+            ":dni_nie" => $register['dni_nie'],
+            ":name" => $register['name'],
+            ":surname" => $register['surname'],
+            ":user_id" => $register_id,
+            ":birth_date" => $register['birth_date'],
             ":driver_license" => $path,
         ]);
 
         $stmt = null;
 
-        $_SESSION['user_id'] = $user_id_register;
+        $_SESSION['user_id'] = $register_id;
         $_SESSION['role_id'] = 2;
 
         header("Location: index.php");
@@ -161,16 +161,31 @@ function register(PDO $conn, string $dni_nie_register, string $name_register, st
     }
 }
 
-if(isset($_POST['submit-register']))
-    register($conn, trim($_POST['dni_nie']), trim($_POST['name']), trim($_POST['surname']), trim($_POST['email']), $_POST['password'], $_POST['birth_date']);
+if(isset($_POST['submit-register'])) {
+    $register = [
+        'dni_nie' => $_POST['dni_nie'],
+        'name' => $_POST['name'],
+        'surname' => $_POST['surname'],
+        'email' => $_POST['email'],
+        'password' => $_POST['password'],
+        'birth_date' => $_POST['birth_date'],
+    ];
 
-if(isset($_POST['submit-login']))
-    login($conn, trim($_POST['email']), $_POST['password']);
+    register($conn, $register);
+}
+
+if(isset($_POST['submit-login'])) {
+    $login = [
+            'email' => $_POST['email'],
+            'password' => $_POST['password']
+        ];
+
+    login($conn, $login);
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
