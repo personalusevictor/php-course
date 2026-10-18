@@ -2,6 +2,7 @@
 session_start();
 require_once '../src/config/connection.php';
 require_once '../src/helpers/errors.php';
+require_once '../src/helpers/upload.php';
 
 if(isset($_SESSION['user_id'])) {
     header('Location: index.php');
@@ -9,13 +10,10 @@ if(isset($_SESSION['user_id'])) {
 }
 
 function login(PDO $conn, array $login){
-    $users = [];
-
     try {
         $stmt = $conn->prepare("SELECT id, email, password, role_id FROM users WHERE email = :email");
         $stmt->execute([':email' => $login['email']]);
         $users = $stmt->fetch(PDO::FETCH_ASSOC);
-
         $stmt = null;
     } catch (PDOException $e) {
         getErrors("db_failed");
@@ -42,7 +40,6 @@ function login(PDO $conn, array $login){
 }
 
 function register(PDO $conn, array $register){
-
     $birth_date_obj = DateTime::createFromFormat('Y-m-d', $register['birth_date']);
     $today = new DateTime();
 
@@ -62,8 +59,8 @@ function register(PDO $conn, array $register){
         $stmt = $conn->prepare("SELECT u.email, c.dni_nie FROM users u LEFT JOIN customers c ON u.id = c.users_id WHERE u.email = :email OR c.dni_nie = :dni_nie");
         $stmt->execute([":email" => $register['email'], ":dni_nie" => $register['dni_nie']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
         $stmt = null;
+
         if (!empty($user)) {
             getErrors("auth_register_exists");
             return;
@@ -73,54 +70,13 @@ function register(PDO $conn, array $register){
         return;
     }
 
-    if(!isset($_FILES['driver_license_file']) || $_FILES['driver_license_file']['error'] !== UPLOAD_ERR_OK) {
+    if (!isset($_FILES['driver_license_file'])) {
         getErrors("file_upload_failed");
         return;
     }
 
-    $tmp_name = $_FILES['driver_license_file']['tmp_name'];
-
-    $image_info = @getimagesize($tmp_name);
-    if($image_info === false) {
-        getErrors("file_invalid_image");
-        return;
-    }
-
-    $mime_type = $image_info['mime'];
-    $allowed_mimes = ['image/jpeg', 'image/png', 'image/webp'];
-
-    if(!in_array($mime_type, $allowed_mimes)) {
-        getErrors("file_invalid_image_format");
-        return;
-    }
-
-    $unique_name_file = 'license_' . uniqid() . '.webp';
-    $path = 'uploads/' . $unique_name_file;
-
-    switch ($mime_type) {
-        case 'image/jpeg':
-            $image_resource = @imagecreatefromjpeg($tmp_name);
-            break;
-        case 'image/png':
-            $image_resource = @imagecreatefrompng($tmp_name);
-            imagepalettetotruecolor($image_resource);
-            imagealphablending($image_resource, true);
-            imagesavealpha($image_resource, true);
-            break;
-        case 'image/webp':
-            $image_resource = @imagecreatefromwebp($tmp_name);
-            break;
-        default:
-            getErrors("file_upload_failed");
-            return;
-    }
-
-    if(!$image_resource) {
-        getErrors("file_upload_failed");
-        return;
-    }
-
-    if(!imagewebp($image_resource, $path, 80)) {
+    $license_path = upload_driver_license($_FILES['driver_license_file']);
+    if ($license_path === null) {
         getErrors("file_upload_failed");
         return;
     }
@@ -135,7 +91,6 @@ function register(PDO $conn, array $register){
             ":role_id" => 2,
         ]);
         $register_id = $conn->lastInsertId();
-
         $stmt = null;
 
         $stmt = $conn->prepare("INSERT INTO customers(dni_nie, name, surname, users_id, birth_date, driver_license) VALUES(:dni_nie, :name, :surname, :user_id, :birth_date, :driver_license)");
@@ -145,9 +100,8 @@ function register(PDO $conn, array $register){
             ":surname" => $register['surname'],
             ":user_id" => $register_id,
             ":birth_date" => $register['birth_date'],
-            ":driver_license" => $path,
+            ":driver_license" => $license_path,
         ]);
-
         $stmt = null;
 
         $_SESSION['user_id'] = $register_id;
@@ -163,12 +117,12 @@ function register(PDO $conn, array $register){
 
 if(isset($_POST['submit-register'])) {
     $register = [
-        'dni_nie' => $_POST['dni_nie'],
-        'name' => $_POST['name'],
-        'surname' => $_POST['surname'],
-        'email' => $_POST['email'],
+        'dni_nie' => trim($_POST['dni_nie']),
+        'name' => trim($_POST['name']),
+        'surname' => trim($_POST['surname']),
+        'email' => trim($_POST['email']),
         'password' => $_POST['password'],
-        'birth_date' => $_POST['birth_date'],
+        'birth_date' => trim($_POST['birth_date']),
     ];
 
     register($conn, $register);
@@ -176,9 +130,9 @@ if(isset($_POST['submit-register'])) {
 
 if(isset($_POST['submit-login'])) {
     $login = [
-            'email' => $_POST['email'],
-            'password' => $_POST['password']
-        ];
+        'email' => trim($_POST['email']),
+        'password' => $_POST['password']
+    ];
 
     login($conn, $login);
 }
@@ -217,9 +171,8 @@ if(isset($_POST['submit-login'])) {
         <label>Fecha de Nacimiento</label>
         <input type="date" required name="birth_date" />
         <label>Carnet de Conducir</label>
-        <input type="file" required name="driver_license_file" />
+        <input type="file" required name="driver_license_file" accept=".jpg, .jpeg, .png, .webp" />
         <input type="submit" name="submit-register" value="Registrarse" />
     </form>
 </body>
-
 </html>

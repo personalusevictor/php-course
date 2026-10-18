@@ -29,23 +29,32 @@ function add_vehicle(PDO $conn, array $vehicle) {
                         ':motorization' => $vehicle['motorization'],
                         ':class_id' => $vehicle['class_id'],
             ]);
+        $stmt = null;
     } catch (PDOException $e) {
         getErrors('db_failed');
         return;
     }
 }
 
+try {
+    $stmt_classes = $conn->query("SELECT id, name, description FROM vehicle_classes");
+    $vehicle_classes = $stmt_classes->fetchAll(PDO::FETCH_ASSOC);
+    $stmt_classes = null;
+} catch (PDOException $e) {
+    $vehicle_classes = [];
+}
+
 if(isset($_POST['submit-vehicle'])) {
     $vehicle = [
-            'plate' => $_POST['plate'],
-            'brand' => $_POST['brand'],
-            'model' => $_POST['model'],
-            'color' => $_POST['color'],
-            'doors' => $_POST['doors'],
-            'seats' => $_POST['seats'],
-            'transmission' => $_POST['transmission'],
-            'motorization' => $_POST['motorization'],
-            'class_id' => $_POST['class_id']
+            'plate' => trim($_POST['plate']),
+            'brand' => trim($_POST['brand']),
+            'model' => trim($_POST['model']),
+            'color' => trim($_POST['color']),
+            'doors' => (int)($_POST['doors']),
+            'seats' => (int)($_POST['seats']),
+            'transmission' => trim($_POST['transmission']),
+            'motorization' => trim($_POST['motorization']),
+            'class_id' => (int)($_POST['class_id'])
         ];
 
     add_vehicle($conn, $vehicle);
@@ -69,27 +78,43 @@ if(isset($_POST['submit-vehicle'])) {
     </header>
     <main>
         <form method="post">
-            <label>Matricula</label>
-            <input type="text" name="plate" placeholder="Introduce tu matricula..." />
+            <label>Matrícula</label>
+            <input type="text" name="plate" required placeholder="Introduce tu matricula..." />
             <label>Marca</label>
-            <input type="text" name="brand" placeholder="Introduce la marca..." />
-            <label>Matricula</label>
-            <input type="text" name="model" placeholder="Introduce el modelo..." />
+            <input type="text" name="brand" required placeholder="Introduce la marca..." />
+            <label>Modelo</label>
+            <input type="text" name="model" required placeholder="Introduce el modelo..." />
             <label>Color</label>
-            <input type="color" name="color" placeholder="Introduce el color..." />
+            <input type="color" name="color" required placeholder="Introduce el color..." />
             <label>Puertas</label>
-            <input type="number" name="doors" placeholder="Introduce el número de puertas..." />
+            <input type="number" name="doors" required min="2" max="7" placeholder="Introduce el Nº de puertas..." />
             <label>Asientos</label>
-            <input type="number" name="seats" placeholder="Introduce el número de asientos..." />
-            <label>Transmición</label>
-            <input type="text" name="transmission" placeholder="Introduce la transmición..." />
+            <input type="number" name="seats" required min="1" max="9" placeholder="Introduce el Nº de asientos..." />
+            <label>Transmisión</label>
+            <select name="transmission" required>
+                <option value="">Introduce una transmisión...</option>
+                <option value="manual">Manual</option>
+                <option value="automatic">Automático</option>
+            </select>
             <label>Motorización</label>
-            <input type="text" name="motorization" placeholder="Introduce la motorización..." />
+            <select name="motorization" required>
+                <option value="">Introduce una motorización...</option>
+                <option value="gasoline">Gasolina</option>
+                <option value="diesel">Diésel</option>
+                <option value="hybrid">Híbrido</option>
+                <option value="electric">Eléctrico</option>
+            </select>
             <label>Tipo de Clase</label>
-            <input type="text" name="class" placeholder="Introduce el tipo de clase..." />
-            <input type="submit" value="submit-vehicle" value="Añadir Vehículo" />
+            <select name="class_id" required>
+                <option value="">Selecciona una clase...</option>
+                <?php foreach($vehicle_classes as $class): ?>
+                    <option value="<?= $class['id'] ?>">
+                        Clase <?= htmlspecialchars($class['name']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" name="submit-vehicle" value="Agregar Vehículo" />
         </form>
     </main>
 </body>
-
 </html>
