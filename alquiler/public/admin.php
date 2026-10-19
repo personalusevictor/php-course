@@ -15,25 +15,36 @@ if (isset($_POST['submit_logout_admin'])) {
     exit();
 }
 
-function add_vehicle(PDO $conn, array $vehicle) {
+function add_vehicle(PDO $conn, array $vehicle)
+{
     try {
-        $stmt = $conn->prepare("INSERT INTO vehicles(plate, brand, model, color, doors, seats, transmission, motorization, class_id) VALUES(:plate, :brand, :model, :color, :doors, :seats, :transmission, :motorization, :class_id)");
+        $stmt = $conn->prepare("INSERT INTO vehicles(plate, brand, model, color, doors, seats, transmission, motorization, price, class_id) VALUES(:plate, :brand, :model, :color, :doors, :seats, :transmission, :motorization, :price, :class_id)");
         $stmt->execute([
-                        ':plate' => $vehicle['plate'],
-                        ':brand' => $vehicle['brand'],
-                        ':model' => $vehicle['model'],
-                        ':color' => $vehicle['color'],
-                        ':doors' => $vehicle['doors'],
-                        ':seats' => $vehicle['seats'],
-                        ':transmission' => $vehicle['transmission'],
-                        ':motorization' => $vehicle['motorization'],
-                        ':class_id' => $vehicle['class_id'],
-            ]);
+            ':plate' => $vehicle['plate'],
+            ':brand' => $vehicle['brand'],
+            ':model' => $vehicle['model'],
+            ':color' => $vehicle['color'],
+            ':doors' => $vehicle['doors'],
+            ':seats' => $vehicle['seats'],
+            ':transmission' => $vehicle['transmission'],
+            ':motorization' => $vehicle['motorization'],
+            ':price' => $vehicle['price'],
+            ':class_id' => $vehicle['class_id'],
+        ]);
         $stmt = null;
     } catch (PDOException $e) {
         getErrors('db_failed');
         return;
     }
+}
+
+try {
+    $stmt = $conn->query("SELECT v.id, v.plate, v.brand, v.model, v.color, v.doors, v.seats, v.transmission, v.motorization, v.price, vc.name AS class_name FROM vehicles v INNER JOIN vehicle_classes vc ON v.class_id = vc.id ORDER BY v.id DESC");
+    $admin_vehicles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = null;
+} catch (PDOException $e) {
+    getErrors("db_failed");
+    $admin_vehicles = [];
 }
 
 try {
@@ -44,18 +55,19 @@ try {
     $vehicle_classes = [];
 }
 
-if(isset($_POST['submit-vehicle'])) {
+if (isset($_POST['submit-vehicle'])) {
     $vehicle = [
-            'plate' => trim($_POST['plate']),
-            'brand' => trim($_POST['brand']),
-            'model' => trim($_POST['model']),
-            'color' => trim($_POST['color']),
-            'doors' => (int)($_POST['doors']),
-            'seats' => (int)($_POST['seats']),
-            'transmission' => trim($_POST['transmission']),
-            'motorization' => trim($_POST['motorization']),
-            'class_id' => (int)($_POST['class_id'])
-        ];
+        'plate' => trim($_POST['plate']),
+        'brand' => trim($_POST['brand']),
+        'model' => trim($_POST['model']),
+        'color' => trim($_POST['color']),
+        'doors' => (int)($_POST['doors']),
+        'seats' => (int)($_POST['seats']),
+        'transmission' => trim($_POST['transmission']),
+        'motorization' => trim($_POST['motorization']),
+        'price' => trim($_POST['price']),
+        'class_id' => (int)($_POST['class_id'])
+    ];
 
     add_vehicle($conn, $vehicle);
 }
@@ -63,6 +75,7 @@ if(isset($_POST['submit-vehicle'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,10 +117,12 @@ if(isset($_POST['submit-vehicle'])) {
                 <option value="hybrid">Híbrido</option>
                 <option value="electric">Eléctrico</option>
             </select>
+            <label>Precio por Día</label>
+            <input type="number" name="price" required placeholder="Introduce el precio por día..." />
             <label>Tipo de Clase</label>
             <select name="class_id" required>
                 <option value="">Selecciona una clase...</option>
-                <?php foreach($vehicle_classes as $class): ?>
+                <?php foreach ($vehicle_classes as $class): ?>
                     <option value="<?= $class['id'] ?>">
                         Clase <?= htmlspecialchars($class['name']) ?>
                     </option>
@@ -115,6 +130,39 @@ if(isset($_POST['submit-vehicle'])) {
             </select>
             <input type="submit" name="submit-vehicle" value="Agregar Vehículo" />
         </form>
+        <?php if (!isset($admin_vehicles)): ?>
+            <p>No hay vehiculos registrados</p>
+        <?php else: ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Matrícula</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Clase</th>
+                        <th>Precio/día</th>
+                        <th>Transmisión</th>
+                        <th>Motor</th>
+                    </tr>
+                </thead>
+                <?php foreach ($admin_vehicles as $vehicle): ?>
+                    <tbody>
+                        <tr>
+                            <td><?= htmlspecialchars($vehicle['id']) ?></td>
+                            <td><?= htmlspecialchars($vehicle['plate']) ?></td>
+                            <td><?= htmlspecialchars($vehicle['brand']) ?></td>
+                            <td><?= htmlspecialchars($vehicle['model']) ?></td>
+                            <td><?= htmlspecialchars($vehicle['class_name']) ?></td>
+                            <td><?= htmlspecialchars($vehicle['price']) ?></td>
+                            <td><?= ucfirst(htmlspecialchars($vehicle['transmission'])) ?></td>
+                            <td><?= ucfirst(htmlspecialchars($vehicle['motorization'])) ?></td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
     </main>
 </body>
+
 </html>

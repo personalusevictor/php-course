@@ -54,8 +54,19 @@ CREATE TABLE vehicles (
     seats INT NOT NULL,
     transmission ENUM('manual', 'automatic') NOT NULL,
     motorization ENUM('gasoline', 'diesel', 'hybrid', 'electric') NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
     class_id INT NOT NULL,
     FOREIGN KEY (class_id) REFERENCES vehicle_classes(id) ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE vehicles_closures (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    reason VARCHAR(100),
+    out_of_service BOOLEAN NOT NULL,
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(id) ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO users (id, email, password, role_id) 
