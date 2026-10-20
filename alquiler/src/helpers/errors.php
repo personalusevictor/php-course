@@ -11,6 +11,7 @@ function getErrors(string $codigo) {
         "file_upload_failed" => "El archivo no se ha subido correctamente o no se ha seleccionado ninguno.",
         "file_invalid_image" => "El archivo seleccionado no es una imagen válida.",
         "file_invalid_format" => "El formato del archivo no es compatible o válido.",
+        "invalid_date" => "La fecha introducida no es válida."
     ];
     printErrors($errors[$codigo] ?? "Ha ocurrido un error desconocido.");
 }

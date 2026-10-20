@@ -17,9 +17,13 @@ if (isset($_POST['submit_logout_costumers'])) {
 
 try {
     $stmt = $conn->query("
-        SELECT v.id, v.brand, v.model, v.doors, v.seats, v.transmission, v.motorization, vc.name AS class_name, vc.description AS class_description
+        SELECT v.id, v.brand, v.model, v.doors, v.seats, v.transmission, v.motorization, v.price, vc.name AS class_name, vc.description AS class_description
         FROM vehicles v
         INNER JOIN vehicle_classes vc ON v.class_id = vc.id
+        WHERE v.id NOT IN (
+            SELECT vehicle_id FROM vehicles_closures 
+            CURDATE() BETWEEN start_date AND end_date
+        )
         ORDER BY vc.name ASC, v.brand ASC, v.model ASC
     ");
     $vehicles = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,6 +55,7 @@ foreach ($vehicles as $vehicle) {
             'motorization' => $vehicle['motorization'],
             'doors' => $vehicle['doors'],
             'seats' => $vehicle['seats'],
+            'price' => $vehicle['price'],
             'units' => 1
         ];
     } else {
@@ -88,13 +93,14 @@ foreach ($vehicles as $vehicle) {
 
                     <div>
                         <?php foreach ($class_data['models'] as $car): ?>
-                            <article>
+                            <article style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
                                 <h4>
                                     <?= htmlspecialchars($car['brand']) ?> <?= htmlspecialchars($car['model']) ?>
                                     <?php if ($car['units'] > 1): ?>
                                         <small>(<?= $car['units'] ?> unidades disponibles)</small>
                                     <?php endif; ?>
                                 </h4>
+                                <p><strong>Precio base:</strong> <?= number_format((float)$car['price'], 2) ?> € / día</p>
                                 <ul>
                                     <li><strong>Transmisión: </strong> <?= ucfirst(htmlspecialchars($car['transmission'])) ?></li>
                                     <li><strong>Motorización: </strong> <?= ucfirst(htmlspecialchars($car['motorization'])) ?></li>
