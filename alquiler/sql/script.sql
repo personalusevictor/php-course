@@ -1,4 +1,3 @@
--- Borramos las tablas en orden inverso de dependencia para evitar errores de Foreign Keys
 DROP TABLE IF EXISTS vehicles;
 DROP TABLE IF EXISTS vehicle_classes;
 DROP TABLE IF EXISTS customers;

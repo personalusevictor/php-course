@@ -132,3 +132,29 @@ function delete_closure(PDO $conn, int $id): bool {
         return false;
     }
 }
+
+function get_closure_by_id(PDO $conn, int $id): ?array {
+    try {
+        $stmt = $conn->prepare("SELECT * FROM vehicles_closures WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        $closure = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $closure ?: null;
+    } catch (PDOException $e) {
+        return null;
+    }
+}
+
+function update_closure(PDO $conn, int $id, array $closure): bool {
+    try {
+        $stmt = $conn->prepare("UPDATE vehicles_closures SET vehicle_id = :vehicle_id, start_date = :start_date, end_date = :end_date, reason = :reason");
+        return $stmt->execute([
+            ':id' => $id,
+            ':vehicle_id' => $closure['vehicle_id'],
+            ':start_date' => $closure['start_date'],
+            ':end_date' => $closure['end_date'],
+            ':reason' => $closure['reason']
+            ]);
+    } catch (PDOException $e) {
+        return false;
+    }
+}

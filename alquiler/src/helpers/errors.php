@@ -11,7 +11,9 @@ function getErrors(string $codigo) {
         "file_upload_failed" => "El archivo no se ha subido correctamente o no se ha seleccionado ninguno.",
         "file_invalid_image" => "El archivo seleccionado no es una imagen válida.",
         "file_invalid_format" => "El formato del archivo no es compatible o válido.",
-        "invalid_date" => "La fecha introducida no es válida."
+        "validation_invalid_dates" => "El rango de fechas introducido no es válido (la fecha de fin es anterior a la de inicio).",
+        "availability_vehicle_closed" => "El vehículo seleccionado no está disponible en las fechas indicadas debido a un mantenimiento o cierre programado.",
+        "availability_check_failed" => "Error al comprobar la disponibilidad.",
     ];
     printErrors($errors[$codigo] ?? "Ha ocurrido un error desconocido.");
 }

@@ -22,7 +22,7 @@ try {
         INNER JOIN vehicle_classes vc ON v.class_id = vc.id
         WHERE v.id NOT IN (
             SELECT vehicle_id FROM vehicles_closures 
-            CURDATE() BETWEEN start_date AND end_date
+            WHERE CURDATE() BETWEEN start_date AND end_date
         )
         ORDER BY vc.name ASC, v.brand ASC, v.model ASC
     ");
@@ -38,7 +38,7 @@ foreach ($vehicles as $vehicle) {
     $class_name = $vehicle['class_name'];
     $class_description = $vehicle['class_description'];
 
-    $model_key = strtolower(trim($vehicle['brand']) . '-' . trim($vehicle['model']));
+    $model_key = strtolower(trim($vehicle['brand']) . '-' . trim($vehicle['model']. '-' . trim($vehicle['transmission']) . '-' . trim($vehicle['motorization'])));
 
     if (!isset($grouped_catalog[$class_name])) {
         $grouped_catalog[$class_name] = [
@@ -56,10 +56,7 @@ foreach ($vehicles as $vehicle) {
             'doors' => $vehicle['doors'],
             'seats' => $vehicle['seats'],
             'price' => $vehicle['price'],
-            'units' => 1
         ];
-    } else {
-        $grouped_catalog[$class_name]['models'][$model_key]['units']++;
     }
 }
 ?>
@@ -79,6 +76,7 @@ foreach ($vehicles as $vehicle) {
         <form method="post">
             <input type="submit" name="submit_logout_costumers" value="Cerrar Sesión" />
         </form>
+        <a href="availability.php">Panel de Disponibilidad</a>
     </header>
     <main>
         <h2>Catálogo de Vehículos Disponibles</h2>
@@ -93,12 +91,9 @@ foreach ($vehicles as $vehicle) {
 
                     <div>
                         <?php foreach ($class_data['models'] as $car): ?>
-                            <article style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                            <article>
                                 <h4>
                                     <?= htmlspecialchars($car['brand']) ?> <?= htmlspecialchars($car['model']) ?>
-                                    <?php if ($car['units'] > 1): ?>
-                                        <small>(<?= $car['units'] ?> unidades disponibles)</small>
-                                    <?php endif; ?>
                                 </h4>
                                 <p><strong>Precio base:</strong> <?= number_format((float)$car['price'], 2) ?> € / día</p>
                                 <ul>
