@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p><strong>Precio por día:</strong> <?= number_format($calculation_result['price_per_day'], 2) ?> €</p>
                 <p><strong>Precio Total:</strong> <span><?= number_format($calculation_result['total_price'], 2) ?> €</span></p>
                 <?php if ($discount > 0): ?>
-                    <p><strong> Descuento Realizado del <?= ($discount * 100)  ?>%: </strong><?= number_format($calculation_result['total_price_discount'], 2) ?> €</p>
+                    <p><strong> Descuento <?= ($discount * 100)  ?>%: </strong><?= number_format($calculation_result['total_price_discount'], 2) ?> €</p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
