@@ -78,8 +78,8 @@ if (isset($_POST['submit-closure'])) {
     $closure = [
         'vehicle_id' => $vehicle_id,
         'start_date' => $start_date,
-        'end_date'   => $end_date,
-        'reason'     => $_POST['reason'],
+        'end_date' => $end_date,
+        'reason' => $_POST['reason'],
     ];
     
     add_closure($conn, $closure);

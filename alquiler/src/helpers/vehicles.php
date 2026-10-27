@@ -158,3 +158,53 @@ function update_closure(PDO $conn, int $id, array $closure): bool {
         return false;
     }
 }
+function add_reservation(PDO $conn, array $reservation): bool {
+    try {
+        $stmt = $conn->prepare("
+            INSERT INTO reservations(customer_id, vehicle_id, start_date, end_date, price_without_discount, price_with_discount, status) 
+            VALUES(:customer_id, :vehicle_id, :start_date, :end_date, :pw, :pwd, 'confirmed')
+        ");
+        return $stmt->execute([
+            ':customer_id' => $reservation['customer_id'],
+            ':vehicle_id'  => $reservation['vehicle_id'],
+            ':start_date'  => $reservation['start_date'],
+            ':end_date'    => $reservation['end_date'],
+            ':pw'          => $reservation['price_without_discount'],
+            ':pwd'         => $reservation['price_with_discount']
+        ]);
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+function get_customer_reservations(PDO $conn, string $dni_nie): array {
+    try {
+        $stmt = $conn->prepare("
+            SELECT r.*, v.plate, v.brand, v.model, v.color 
+            FROM reservations r
+            INNER JOIN vehicles v ON r.vehicle_id = v.id
+            WHERE r.customer_id = :dni_nie
+            ORDER BY r.created_at DESC
+        ");
+        $stmt->execute([':dni_nie' => $dni_nie]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        return [];
+    }
+}
+
+function cancel_reservation(PDO $conn, int $reservation_id, string $dni_nie): bool {
+    try {
+        $stmt = $conn->prepare("
+            UPDATE reservations 
+            SET status = 'cancelled' 
+            WHERE id = :id AND customer_id = :dni_nie
+        ");
+        return $stmt->execute([
+            ':id' => $reservation_id,
+            ':dni_nie' => $dni_nie
+        ]);
+    } catch (PDOException $e) {
+        return false;
+    }
+}
