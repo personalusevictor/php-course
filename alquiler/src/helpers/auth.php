@@ -36,10 +36,12 @@ function register(PDO $conn, array $register){
         echo 'Revisa el DNI/NIE y la longitud de tus datos.';
         return;
     }
+    
     if (!filter_var($register['email'], FILTER_VALIDATE_EMAIL) || $register['dni_nie'] === '' || $register['name'] === '' || $register['surname'] === '' || strlen($register['password']) < 8 || strlen($register['password']) > 72) {
         echo 'Revisa tus datos. La contraseña debe tener entre 8 y 72 bytes.';
         return;
     }
+    
     $birth_date_obj = DateTime::createFromFormat('Y-m-d', $register['birth_date']);
     $today = new DateTime();
 

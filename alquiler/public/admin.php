@@ -11,7 +11,6 @@ require_once __DIR__ . '/../src/helpers/vehicles.php';
 $reasons = ['itv' => 'Revisión técnica', 'maintenance' => 'Mantenimiento', 'breakdown' => 'Avería mecánica', 'cleaning' => 'Limpieza y desinfección', 'accident' => 'Siniestro o accidente', 'other' => 'Otros motivos'];
 $error = '';
 $notice = $_SESSION['notice'] ?? '';
-
 unset($_SESSION['notice']);
 
 $vehicle_classes = get_vehicle_classes($conn);

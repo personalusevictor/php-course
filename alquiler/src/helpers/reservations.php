@@ -19,9 +19,11 @@ function rental_price(string $start, string $end, string $daily): array {
     $parts = explode('.', $daily);
     $cents = (int)$parts[0] * 100 + (int)str_pad(substr($parts[1] ?? '', 0, 2), 2, '0');
     $base = $cents * $days;
+
     if ($base > 9999999999) {
         throw new RuntimeException('El importe del periodo supera el máximo admitido. Selecciona un periodo más corto.');
     }
+
     $final = (int)round($base * (100 - $percent) / 100);
     return ['days' => $days, 'percent' => $percent, 'base' => $base / 100, 'final' => $final / 100];
 }
@@ -30,6 +32,7 @@ function reserve_vehicle(PDO $conn, int $user, string $key, string $start, strin
     if (!valid_period($start, $end)) {
         throw new RuntimeException('El periodo no es válido.');
     }
+
     $conn->beginTransaction();
     try {
         $stmt = $conn->query('SELECT * FROM vehicles ORDER BY id');
@@ -38,19 +41,25 @@ function reserve_vehicle(PDO $conn, int $user, string $key, string $start, strin
             $lock = $conn->prepare('SELECT * FROM vehicles WHERE id = ? FOR UPDATE');
             $lock->execute([$candidate['id']]);
             $vehicle = $lock->fetch(PDO::FETCH_ASSOC);
+
             if (!$vehicle || model_key($vehicle) !== $key) {
                 continue;
             }
+
             $check = $conn->prepare('SELECT id FROM vehicles_closures WHERE vehicle_id = ? AND start_date <= ? AND end_date >= ? FOR UPDATE');
             $check->execute([$vehicle['id'], $end, $start]);
+
             if ($check->fetch()) {
                 continue;
             }
+
             $check = $conn->prepare("SELECT id FROM reservations WHERE vehicle_id = ? AND status = 'confirmed' AND start_date <= ? AND end_date >= ? FOR UPDATE");
             $check->execute([$vehicle['id'], $end, $start]);
+            
             if ($check->fetch()) {
                 continue;
             }
+
             $price = rental_price($start, $end, $vehicle['price']);
             $class = $conn->prepare('SELECT name FROM vehicle_classes WHERE id = ?');
             $class->execute([$vehicle['class_id']]);

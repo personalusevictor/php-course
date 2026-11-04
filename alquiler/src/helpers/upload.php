@@ -8,6 +8,7 @@ function upload_driver_license(array $file): ?string {
     if (($file['size'] ?? 0) > 5 * 1024 * 1024 || !is_uploaded_file($file['tmp_name'])) {
         return null;
     }
+    
     $tmp_name = $file['tmp_name'];
 
     $image_info = @getimagesize($tmp_name);
