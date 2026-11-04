@@ -108,18 +108,39 @@ function get_all_closures(PDO $conn): array {
 }
 
 function add_closure(PDO $conn, array $closure): bool {
+    return save_closure($conn, null, $closure);
+}
+
+function save_closure(PDO $conn, ?int $id, array $closure): bool {
+    $conn->beginTransaction();
     try {
-        $stmt = $conn->prepare("
-            INSERT INTO vehicles_closures(vehicle_id, start_date, end_date, reason) 
-            VALUES(:vehicle_id, :start_date, :end_date, :reason)
-        ");
-        return $stmt->execute([
-            ':vehicle_id' => $closure['vehicle_id'],
-            ':start_date' => $closure['start_date'],
-            ':end_date' => $closure['end_date'],
-            ':reason' => $closure['reason'],
-        ]);
-    } catch (PDOException $e) {
+        $stmt = $conn->prepare('SELECT id FROM vehicles WHERE id = ? FOR UPDATE');
+        $stmt->execute([$closure['vehicle_id']]);
+        if (!$stmt->fetch()) {
+            throw new RuntimeException('Vehículo inexistente.');
+        }
+        $stmt = $conn->prepare("SELECT id FROM reservations WHERE vehicle_id = ? AND status = 'confirmed' AND start_date <= ? AND end_date >= ? FOR UPDATE");
+        $stmt->execute([$closure['vehicle_id'], $closure['end_date'], $closure['start_date']]);
+        if ($stmt->fetch()) {
+            throw new RuntimeException('Hay reservas en ese periodo.');
+        }
+        $stmt = $conn->prepare('SELECT id FROM vehicles_closures WHERE vehicle_id = ? AND start_date <= ? AND end_date >= ? AND id <> ? FOR UPDATE');
+        $stmt->execute([$closure['vehicle_id'], $closure['end_date'], $closure['start_date'], $id ?? 0]);
+        if ($stmt->fetch()) {
+            throw new RuntimeException('Hay otro cierre en ese periodo.');
+        }
+        $values = [$closure['vehicle_id'], $closure['start_date'], $closure['end_date'], $closure['reason']];
+        if ($id === null) {
+            $stmt = $conn->prepare('INSERT INTO vehicles_closures (vehicle_id, start_date, end_date, reason) VALUES (?, ?, ?, ?)');
+        } else {
+            $stmt = $conn->prepare('UPDATE vehicles_closures SET vehicle_id = ?, start_date = ?, end_date = ?, reason = ? WHERE id = ?');
+            $values[] = $id;
+        }
+        $stmt->execute($values);
+        $conn->commit();
+        return true;
+    } catch (Throwable $e) {
+        $conn->rollBack();
         return false;
     }
 }
@@ -145,16 +166,5 @@ function get_closure_by_id(PDO $conn, int $id): ?array {
 }
 
 function update_closure(PDO $conn, int $id, array $closure): bool {
-    try {
-        $stmt = $conn->prepare("UPDATE vehicles_closures SET vehicle_id = :vehicle_id, start_date = :start_date, end_date = :end_date, reason = :reason");
-        return $stmt->execute([
-            ':id' => $id,
-            ':vehicle_id' => $closure['vehicle_id'],
-            ':start_date' => $closure['start_date'],
-            ':end_date' => $closure['end_date'],
-            ':reason' => $closure['reason']
-            ]);
-    } catch (PDOException $e) {
-        return false;
-    }
+    return save_closure($conn, $id, $closure);
 }

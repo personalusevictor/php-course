@@ -5,10 +5,13 @@ function upload_driver_license(array $file): ?string {
         return null;
     }
 
+    if (($file['size'] ?? 0) > 5 * 1024 * 1024 || !is_uploaded_file($file['tmp_name'])) {
+        return null;
+    }
     $tmp_name = $file['tmp_name'];
 
     $image_info = @getimagesize($tmp_name);
-    if ($image_info === false) {
+    if ($image_info === false || $image_info[0] > 5000 || $image_info[1] > 5000) {
         return null;
     }
 
@@ -16,6 +19,23 @@ function upload_driver_license(array $file): ?string {
     $allowed_mimes = ['image/jpeg', 'image/png', 'image/webp'];
 
     if (!in_array($mime_type, $allowed_mimes)) {
+        return null;
+    }
+
+    if (!extension_loaded('gd')) {
+        return null;
+    }
+
+    $upload_dir = __DIR__ . '/../../storage/licenses/';
+
+    if (!is_dir($upload_dir)) {
+        if (!mkdir($upload_dir, 0700, true)) {
+            return null;
+        }
+    }
+
+    if (!is_writable($upload_dir)) {
+        error_log('VCar: la carpeta de carnets no permite escritura al usuario del servidor.');
         return null;
     }
 
@@ -32,7 +52,7 @@ function upload_driver_license(array $file): ?string {
             }
             break;
         case 'image/webp':
-            $image_resource = @imagecreatefromwebp($tmp_name);
+            $image_resource = function_exists('imagecreatefromwebp') ? @imagecreatefromwebp($tmp_name) : false;
             break;
         default:
             return null;
@@ -42,15 +62,7 @@ function upload_driver_license(array $file): ?string {
         return null;
     }
 
-    $upload_dir = __DIR__ . '/../../public/uploads/';
-
-    if (!is_dir($upload_dir)) {
-        if (!mkdir($upload_dir, 0755, true)) {
-            return null;
-        }
-    }
-
-    $unique_name_file = 'license_' . uniqid() . '.webp';
+    $unique_name_file = 'license_' . bin2hex(random_bytes(16)) . '.webp';
     $full_path = $upload_dir . $unique_name_file;
 
     if (function_exists('imagewebp')) {
@@ -65,5 +77,5 @@ function upload_driver_license(array $file): ?string {
         return null;
     }
 
-    return 'uploads/' . $unique_name_file;
+    return $unique_name_file;
 }
