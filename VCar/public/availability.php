@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (($_SESSION['role_id'] ?? null) != 2) {
     header('Location: ' . (isset($_SESSION['user_id']) ? 'index.php' : 'auth-page.php'));
     exit;

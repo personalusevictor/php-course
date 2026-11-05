@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../src/helpers/security.php';
+
 if (($_SESSION['role_id'] ?? null) != 1) {
     header('Location: ' . (isset($_SESSION['user_id']) ? 'index.php' : 'auth-page.php'));
     exit;
