@@ -2,7 +2,7 @@
 const DB_SERVERNAME = "localhost";
 const DB_USERNAME = "root";
 const DB_PASSWORD = "";
-const DB_NAME = "alquiler";
+const DB_NAME = "vcar";
 
 try {
     $conn = new PDO("mysql:host=" . DB_SERVERNAME . ";charset=utf8mb4;dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
