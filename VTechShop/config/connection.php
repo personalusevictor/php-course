@@ -1,6 +1,6 @@
 <?php
 
-include_once('helpers/errors.php');
+include_once(dirname(__DIR__, 1) . '/helpers/errors.php');
 
 $server = "localhost";
 $username = "root";
@@ -12,6 +12,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     getErrors("db_failed");
+    exit;
 }
 
 ?>
