@@ -8,7 +8,7 @@ function icon(string $name): string {
     }
     if (!isset($icons[$name])) {
         $path = __DIR__ . '/../../public/assets/icons/' . $name . '.svg';
-        $icons[$name] = is_file($path) ? str_replace('<svg', '<svg class="icon" aria-hidden="true" focusable="false"', file_get_contents($path)) : '';
+        $icons[$name] = is_file($path) ? str_replace('<svg', '<svg class="icon" aria_hidden="true" focusable="false"', file_get_contents($path)) : '';
     }
     return $icons[$name];
 }
@@ -34,7 +34,11 @@ function site_header(string $active): void {
         </nav>
         <div class="header-actions">
         <?php if ($logged): ?>
-        <form method="post" action="index.php"><?= csrf_field() ?><button class="button-quiet logout" aria-label="Cerrar sesión" name="submit_logout_costumers"><?= icon('log-out') ?><span>Cerrar sesión</span></button></form>
+        <form method="post" action="index.php"><?= csrf_field() ?>
+            <button class="button-quiet logout" aria-label="Cerrar sesión" name="submit_logout_costumers">
+                <?= icon('log-out') ?><span>Cerrar sesión</span>
+            </button>
+        </form>
         <?php else: ?><a class="button button-dark button-small" href="auth-page.php"><?= icon('log-in') ?>Acceder</a><?php endif; ?>
         </div>
         <?php endif; ?>

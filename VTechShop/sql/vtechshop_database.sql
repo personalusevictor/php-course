@@ -1,3 +1,5 @@
+DROP DATABASE vtechshop;
+
 CREATE DATABASE IF NOT EXISTS vtechshop
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_spanish_ci;
@@ -36,7 +38,7 @@ CREATE TABLE products (
     products_description TEXT NULL,
     brand VARCHAR(100) NOT NULL,
     model VARCHAR(150) NOT NULL,
-    product_image VARCHAR(200),
+    products_image VARCHAR(200),
     price DECIMAL(12, 4) NOT NULL CHECK (price >= 0),
     stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

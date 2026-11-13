@@ -15,7 +15,7 @@ INSERT IGNORE INTO categories (category_name, category_description) VALUES
     ('Monitores', 'Pantallas para PC, productividad, diseño y videojuegos.'),
     ('Auriculares', 'Auriculares con micrófono para juegos, videollamadas y uso multimedia.');
 
-INSERT INTO products (category_id, products_name, products_description, brand, model, product_image, price, stock)
+INSERT INTO products (category_id, products_name, products_description, brand, model, products_image, price, stock)
 SELECT c.category_id, s.products_name, s.products_description, s.brand, s.model, NULL, s.price, s.stock
 FROM (
     SELECT 'Procesadores' AS category_name, 'Procesador AMD Ryzen 5 5600' AS products_name, 'CPU de escritorio AM4 de 6 núcleos; adecuada para montajes DDR4 económicos.' AS products_description, 'AMD' AS brand, 'Ryzen 5 5600' AS model, 108.90 AS price, 0 AS stock

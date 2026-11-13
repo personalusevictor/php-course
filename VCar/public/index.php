@@ -94,7 +94,12 @@ require_once __DIR__ . '/../src/views/layout.php';
                                     <li><?= icon('users') ?><?= (int)$car['seats'] ?> asientos</li>
                                     <li><?= icon('door-open') ?><?= (int)$car['doors'] ?> puertas</li>
                                 </ul>
-                                <div class="card-bottom"><span class="price"><?= number_format((float)$car['price'], 2, ',', '.') ?> € <small>/ día</small></span><a class="text-link" href="availability.php" aria-label="Consultar disponibilidad de <?= htmlspecialchars($car['brand'] . ' ' . $car['model'] . ' ' . vehicle_label($car['motorization']) . ' ' . vehicle_label($car['transmission']) . ' ' . $car['doors'] . ' puertas') ?>"><?= icon('search') ?>Ver disponibilidad</a></div>
+                                <div class="card-bottom">
+                                    <span class="price"><?= number_format((float)$car['price'], 2, ',', '.') ?> € <small>/ día</small></span>
+                                    <a class="text-link" href="availability.php" aria-label="Consultar disponibilidad de <?= htmlspecialchars($car['brand'] . ' ' . $car['model'] . ' ' . vehicle_label($car['motorization']) . ' ' . vehicle_label($car['transmission']) . ' ' . $car['doors'] . ' puertas') ?>">
+                                        <?= icon('search') ?>Ver disponibilidad
+                                    </a>
+                                </div>
                             </article>
                         <?php endforeach; ?>
                     </div>

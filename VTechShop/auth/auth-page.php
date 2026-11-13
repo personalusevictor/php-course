@@ -4,15 +4,13 @@ require_once(dirname(__DIR__) . '/helpers/currency.php');
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Autenticación - VTechShop</title>
 </head>
-
 <body>
-    <form method="POST" action="auth.php" autocomplete="on">
+    <form method="POST" action="auth-process.php" autocomplete="on">
         <input type="hidden" name="action" value="register">
         <label for="register-username">Nombre de usuario</label><input type="text" id="register-username" name="username" autocomplete="username" maxlength="50" required />
         <label for="register-email">Email</label><input type="email" id="register-email" name="email" autocomplete="email" maxlength="100" required />
@@ -26,12 +24,11 @@ require_once(dirname(__DIR__) . '/helpers/currency.php');
         </select>
         <input type="submit" value="Registrarse" />
     </form>
-    <form method="POST" action="auth.php">
+    <form method="POST" action="auth-process.php">
         <input type="hidden" name="action" value="login">
         <label for="login-email">Email</label><input type="email" id="login-email" name="email" autocomplete="email" maxlength="100" required />
         <label for="login-password">Contraseña</label><input type="password" id="login-password" name="password" autocomplete="current-password" minlength="8" maxlength="255" required />
         <input type="submit" value="Inicia Sesión" />
     </form>
 </body>
-
 </html>
