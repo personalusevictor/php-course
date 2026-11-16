@@ -1,8 +1,8 @@
 <?php 
-    function getErrors(String $error_code) {
+    function getError(String $error_code): string {
         $errors = [
             "db_failed" => "Error, al establecer una conexión con la base de datos.",
-            "query_failed" => "Error, no se ha podido recuperar el catálogo de productos.",
+            "query_failed" => "No se ha podido recuperar el catálogo de productos.",
             "missing_fields" => "Por favor, rellena todos los campos obligatorios.",
             "invalid_length" => "Uno o más campos no cumplen la longitud permitida.",
             "invalid_email" => "El formato del correo electrónico no es válido.",
@@ -11,15 +11,18 @@
             "invalid_action" => "La acción solicitada no es válida.",
             "invalid_credentials" => "El correo electrónico o la contraseña son incorrectas.",
             "user_exists" => "El nombre de usuario o el correo electrónico ya existe.",
+            "out_of_stock" => "Uno o más productos no tienen suficiente stock disponible.",
+            "empty_cart" => "Tu carrito está vacío.",
+            "login_required" => "Debes iniciar sesión para competar esta acción.",
+            "order_failed" => "No se puede procesar el pedido. Inténtalo de nuevo",
             "others" => "Se ha producido un error desconocido.",
         ];
 
-        if(!array_key_exists($error_code, $errors)) {
-            $error_code = "others";
-        }
+        return $errors[$error_code] ?? $errors['others'];
+    }
 
-        echo '<div style="color: red; border: 1px solid red; padding: 10px; margin: 10px 0; border-radius: 5px; display: inline-block">';
-        echo htmlspecialchars($errors[$error_code]);
-        echo '</div>';
+    function render_error(?string $error_code): void {
+        if (!$error_code) return;
+        echo "<div class='alert alert-error'>". htmlspecialchars(getError($error_code)) . "</div>";
     }
 ?>

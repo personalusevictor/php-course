@@ -1,105 +1,93 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+include_once(dirname(__DIR__, 1) . '/config/connection.php');
+include_once(dirname(__DIR__) . '/helpers/auth.php');
+include_once(dirname(__DIR__) . '/helpers/currency.php');
 
-include_once(dirname(__DIR__, 1) . '/helpers/auth.php');
-include_once(dirname(__DIR__, 1) . '/helpers/currency.php');
+start_session_if_needed();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: auth-page.php');
     exit;
 }
     
-include_once(dirname(__DIR__, 1) . '/config/connection.php');
+$action = $_POST['action'] ?? '';
+$redirect = $_POST['redirect'] ?? '';
+$target_url = ($redirect === 'checkout') ? '../checkout.php' : '../index.php';
 
-$action = is_string($_POST['action'] ?? null) ? $_POST['action'] : '';
+if ($action === 'logout') {
+    logout_user();
+    header('Location: ../index.php');
+    exit;
+}
 
-if ($action === 'register') {
-    $username = is_string($_POST['username'] ?? null) ? trim($_POST['username']) : '';
-    $email = is_string($_POST['email'] ?? null) ? trim($_POST['email']) : '';
-    $password = is_string($_POST['password'] ?? null) ? $_POST['password'] : '';
-    $passwordVerify = is_string($_POST['password-verify'] ?? null) ? $_POST['password-verify'] : '';
-    $currency = is_string($_POST['currency'] ?? null) ? trim($_POST['currency']) : '';
+if ($action === 'login') {
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-    if ($username === '' || $email === '' || $password === '' || $passwordVerify === '' || $currency === '') {
+    if (!$email || !$password) {
         $_SESSION['auth_error'] = 'missing_fields';
-        header('Location: auth-page.php');
+        redirect($redirect);
+    }
+
+    if (login_user($conn, ['email' => $email, 'password' => $password])) {
+        header("Location: $target_url");
         exit;
     }
 
-    if (mb_strlen($username) > 50 || mb_strlen($email) > 100 || mb_strlen($password) < 8 || mb_strlen($password) > 255) {
-        $_SESSION['auth_error'] = 'invalid_length';
-        header('Location: auth-page.php');
-        exit;
+    redirect($redirect);
+}
+
+if ($action === 'register') {
+    $username = trim($_POST['username'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $confirm = $_POST['confirm_password'] ?? '';
+    $currency = $_POST['currency'] ?? 'EUR';
+
+    if (!$username || !$email || !$password || !$confirm) {
+        $_SESSION['auth_error'] = 'missing_fields';
+        redirect($redirect);
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['auth_error'] = 'invalid_email';
-        header('Location: auth-page.php');
-        exit;
+        redirect($redirect);
     }
 
-    if (!array_key_exists($currency, $coin)) {
-        $_SESSION['auth_error'] = 'invalid_currency';
-        header('Location: auth-page.php');
-        exit;
+    if (mb_strlen($username) < 3 || mb_strlen($username) > 50 || mb_strlen($password) < 6) {
+        $_SESSION['auth_error'] = 'invalid_length';
+        redirect($redirect);
     }
 
-    if ($password !== $passwordVerify) {
+    if ($password !== $confirm) {
         $_SESSION['auth_error'] = 'invalid_verify';
-        header('Location: auth-page.php');
+        redirect($redirect);
+    }
+
+    if (!array_key_exists($currency, get_currencies())) {
+        $_SESSION['auth_error'] = 'invalid_currency';
+        redirect($redirect);
+    }
+
+
+    $registered = register_user($conn, [
+        'username' => $username,
+        'email' => $email,
+        'password' => $password,
+        'currency' => $currency,
+    ]);
+
+    if ($registered) {
+        header("Location: $target_url");
         exit;
     }
 
-    $register = [
-        "username" => $username,
-        "email" => $email,
-        "password" => password_hash($password, PASSWORD_DEFAULT),
-        "currency" => $currency,
-    ];
+    redirect($redirect);
 
-    if (register($conn, $register)) {
-        header('Location: ../index.php');
-        exit;
-    }
-
-    header('Location: auth-page.php');
-    exit;
-
-} elseif ($action === 'login') {
-    $email = is_string($_POST['email'] ?? null) ? trim($_POST['email']) : '';
-    $password = is_string($_POST['password'] ?? null) ? $_POST['password'] : '';
-
-    if ($email === '' || $password === '') {
-        $_SESSION['auth_error'] = 'missing_fields';
-        header('Location: auth-page.php');
-        exit;
-    }
-
-    if (mb_strlen($email) > 100 || mb_strlen($password) < 8 || mb_strlen($password) > 255) {
-        $_SESSION['auth_error'] = 'invalid_credentials';
-        header('Location: auth-page.php');
-        exit;
-    }
-
-    $login = [
-        "email" => $email,
-        "password" => $password,
-    ];
-
-    if (login($conn, $login)) {
-        header('Location: ../index.php');
-        exit;
-    }
-
-    header('Location: auth-page.php');
-    exit;
-
-} else {
-    $_SESSION['auth_error'] = 'invalid_action';
-    header('Location: auth-page.php');
-    exit;
 }
+
+$_SESSION['auth_error'] = 'invalid_action';
+header('Location: auth-page.php');
+exit;
 
 ?>

@@ -1,92 +1,77 @@
 <?php
-session_start();
-ini_set('display_errors', 1);
-require_once(__DIR__ . '/helpers/product.php');
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_logout'])) {
-    session_unset();
-    session_destroy();
-    header('Location: index.php');
-    exit();
-}
-
-$products = [];
-$error_show = null;
-
 require_once(__DIR__ . '/config/connection.php');
+require_once(__DIR__ . '/helpers/auth.php');
+require_once(__DIR__ . '/helpers/product.php');
+require_once(__DIR__ . '/helpers/recommendations.php');
+require_once(__DIR__ . '/views/layout.php');
+
+start_session_if_needed();
+$currency = $_SESSION['currency_code'] ?? 'EUR';
+
+$selected_cat = filter_input(INPUT_GET, 'cat', FILTER_VALIDATE_INT);
+$error_code = null;
+$products = [];
+$categories = [];
+$grouped_catalog = [];
+$recent = [];
+$recommendations = ['mode' => 'none', 'products' => []];
+$recommendation_headings = [
+    'personalized' => ['Recomendados para ti', 'Según los productos que has visto o añadido al carrito'],
+    'bestsellers' => ['Los más vendidos', 'Lo que más están comprando nuestros clientes'],
+    'featured' => ['Productos destacados', 'Una selección de distintas categorías'],
+];
 
 try {
-    $products = get_all_products($conn);
+    $categories = get_all_categories($conn);
+    $products = get_all_products($conn, $selected_cat ?: null);
+    $grouped_catalog = group_products_by_category($products);
+    if (!$selected_cat) {
+        $recent = get_recently_viewed($conn, 4);
+        $recommendations = get_home_recommendations($conn, 4);
+    }
 } catch (Exception $e) {
-    $error_show = $e->getMessage();
+    $error_code = $e->getMessage();
 }
 
-$grouped_catalog = [];
-foreach ($products as $product) {
-    $category_name = $product['category_name'];
-    $model_key = model_key($product);
-
-    if (!isset($grouped_catalog[$category_name])) {
-        $grouped_catalog[$category_name] = [
-            'description' => $product['category_description'],
-            'models' => []
-        ];
-    }
-
-    if (!isset($grouped_catalog[$category_name]['models'][$model_key])) {
-        $grouped_catalog[$category_name]['models'][$model_key] = [
-            'id' => $product['products_id'],
-            'brand' => $product['brand'],
-            'model' => $product['model'],
-            'price' => $product['price'],
-            'stock' => $product['stock'],
-            'image' => $product['products_image'],
-        ];
-    }
-}
-
-require_once(__DIR__ . '/views/layout.php');
+render_head('VTechShop - Componentes Informáticos');
+render_header()
 ?>
+<main>
+    <nav>
+        <a href="index.php"><?= !$selected_cat ? '<strong>Todas las categorías</strong>' : 'Todas las categorías' ?></a>
+        <?php foreach ($categories as $cat): ?>
+            <a href="index.php?cat=<?= $cat['category_id'] ?>"><?= $selected_cat === (int)$cat['category_id'] ? '<strong>' . htmlspecialchars($cat['category_name']) . '</strong>' : htmlspecialchars($cat['category_name']) ?></a>
+        <?php endforeach; ?>
+    </nav>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTechShop - Página Principal</title>
-</head>
-<body>
-    <?php site_header() ?>
+    <?php render_error($error_code); ?>
 
-    <h1>Catálogo de Productos</h1>
+    <?php if (!$selected_cat): ?>
+        <?php render_product_section('Vistos recientemente', null, $recent, $currency); ?>
+        <?php [$rec_title, $rec_subtitle] = $recommendation_headings[$recommendations['mode']] ?? ['', null]; ?>
+        <?php render_product_section($rec_title, $rec_subtitle, $recommendations['products'], $currency); ?>
+    <?php endif; ?>
 
-    <?php if ($error_show): ?>
-        <?php getErrors($error_show); ?>
-    <?php elseif (empty($grouped_catalog)): ?>
-        <p>No hay productos disponibles en este momento.</p>
+    <?php if (empty($grouped_catalog)): ?>
+        <div>
+            <p>No hay productos disponibles en esta categoría.</p>
+            <a href="index.php">Ver todo el catálogo</a>
+        </div>
     <?php else: ?>
-        <?php foreach ($grouped_catalog as $category_name => $category_data): ?>
+        <?php foreach ($grouped_catalog as $category): ?>
             <section>
+                <h2><?= htmlspecialchars($category['name']) ?></h2>
+                <?php if (!empty($category['description'])): ?>
+                    <p><?= htmlspecialchars($category['description']) ?></p>
+                <?php endif; ?>
                 <div>
-                    <h2><?= htmlspecialchars($category_name) ?></h2>
-                </div>
-                <div>
-                    <?php foreach ($category_data['models'] as $product): ?>
-                        <article>
-                            <?php if (!empty($product['image'])): ?>
-                                <a href="products.php?id=<?= $product['id'] ?>">
-                                    <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['brand'] . ' ' . $product['model']) ?>" width="180">
-                                </a>
-                            <?php endif; ?>
-                            <h3><a href="products.php?id=<?= $product['id'] ?>"><?= htmlspecialchars($product['brand'] . ' ' . $product['model']) ?></a></h3>
-                            <p class="price"><?= number_format((float)$product['price'], 2, ',', '.') ?>€</p>
-                            <?php if ($product['stock'] <= 0): ?><p><strong>Sin stock</strong></p><?php endif; ?>
-                        </article>
+                    <?php foreach ($category['products'] as $product): ?>
+                        <?php render_product_card($product, '', $currency); ?>
                     <?php endforeach; ?>
                 </div>
             </section>
         <?php endforeach; ?>
     <?php endif; ?>
-</body>
-</html>
+</main>
+
+<?php render_footer(); ?>

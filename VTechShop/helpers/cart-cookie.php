@@ -1,7 +1,7 @@
 <?php
 
 const CART_COOKIE_NAME = 'cart';
-const CART_COOKIE_DAYS = 7;
+define('CART_COOKIE_EXPIRY', time() + (86400 * 30));
 const CART_MAX_ITEMS = 30;
 
 function read_cart(): array {
@@ -9,75 +9,70 @@ function read_cart(): array {
         return [];
     }
 
-    $cart = json_decode($_COOKIE[CART_COOKIE_NAME], true);
+    $data = json_decode($_COOKIE[CART_COOKIE_NAME], true);
 
-    if (!is_array($cart)) {
+    if (!is_array($data)) {
         return [];
     }
 
-    $clean_cart = [];
-    foreach($cart as $id => $qty) {
-        $clean_id = filter_var($id, FILTER_VALIDATE_INT);
-        $clean_qty = filter_var($qty, FILTER_VALIDATE_INT);
-
-        if($clean_id && $clean_id > 0 && $clean_qty && $clean_qty > 0) {
-            $clean_cart[$clean_id] = $clean_qty;
+    $clean = [];
+    foreach($data as $id => $qty) {
+        if((int)$id> 0 && (int)$qty > 0) {
+            $clean[(int)$id] = (int)$qty;
         }
     }
 
-    return $clean_cart;
+    return $clean;
 }
 
 function save_cart(array $cart): void {
-    setcookie(CART_COOKIE_NAME, json_encode($cart), [
-        'expires' => time() + (86400 * CART_COOKIE_DAYS),
+    $clean = [];
+    foreach ($cart as $id => $qty) {
+        if ((int)$id > 0 && (int)$qty > 0) {
+            $clean[(int)$id] = (int)$qty;
+        }
+    }
+    setcookie(CART_COOKIE_NAME, json_encode($clean), [
+        'expires' => CART_COOKIE_EXPIRY,
         'path' => '/',
-        'httponly' => true,
         'samesite' => 'Lax'
     ]);
+    $_COOKIE[CART_COOKIE_NAME] = json_encode($clean);
 }
 
-function add_to_cart(int $id, int $qty, int $max_stock): array {
+function add_to_cart(int $id, int $qty, int $max_stock): bool {
+    if ($max_stock <= 0 || $qty <= 0) return false;
     $cart = read_cart();
-    if (!isset($cart[$id]) && count($cart) >= CART_MAX_ITEMS) {
-        return $cart;
-    }
-
     $current_qty = $cart[$id] ?? 0;
-    $new_qty = $current_qty + $qty;
-
-    if($new_qty > $max_stock) {
-        $new_qty = $max_stock;
-    }
-
+    $new_qty = min($max_stock, $current_qty + $qty);
     $cart[$id] = $new_qty;
     save_cart($cart);
-
-    return $cart;
+    return true;
 }
 
-function update_cart_item(int $id, int $qty, int $max_stock): array {
+function update_cart_item(int $id, int $qty, int $max_stock): void {
     $cart = read_cart();
-
     if($qty <= 0 || $max_stock <= 0) {
         unset($cart[$id]);
     } else {
         $cart[$id] = min($qty, $max_stock);
     }
-
     save_cart($cart);
-    return $cart;
 }
 
-function remove_from_cart(int $id): array {
+function remove_from_cart(int $id): void {
     $cart = read_cart();
     unset($cart[$id]);
     save_cart($cart);
-    return $cart;
 }
 
 function clear_cart(): void {
-    setcookie(CART_COOKIE_NAME, '', time() - 3600, '/');
+    setcookie(CART_COOKIE_NAME, '', ['expires' => time() - 3600, 'path' => '/', 'samesite' => 'Lax']);
+    unset($_COOKIE[CART_COOKIE_NAME]);
+}
+
+function get_cart_count(): int {
+    return array_sum(read_cart());
 }
 
 ?>
