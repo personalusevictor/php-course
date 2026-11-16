@@ -16,6 +16,9 @@ function icon(String $name) {
 function site_header() {
     $logged = isset($_SESSION['user_id']);
     $username = $_SESSION['username'] ?? 'Usuario';
+
+    include_once(dirname(__DIR__, 1) . '/helpers/cart-cookie.php');
+    $cart_count = array_sum(read_cart());
     ?>
     <header>
         <a href="index.php">
@@ -24,6 +27,7 @@ function site_header() {
         </a>
         <nav>
             <a href="index.php">Página Principal</a>
+            <a href="cart.php">Carrito 🛒 <?= $cart_count > 0 ? "($cart_count)" : '' ?></a>
         </nav>
         <?php if ($logged): ?>
             <div>

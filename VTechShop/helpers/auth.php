@@ -13,9 +13,9 @@ function register(PDO $conn, Array $register): bool {
         $stmt = null;
     } catch (PDOException $e) {
         if ($e->getCode() === '23000' && (int)$e->errorInfo[1] === 1062) {
-            getErrors('user_exists');
+            $_SESSION['auth_error'] = 'user_exists';
         } else {
-            getErrors('db_failed');
+            $_SESSION['auth_error'] = 'db_failed';
         }
         return false;
     }
@@ -40,12 +40,12 @@ function login(PDO $conn, Array $login): bool {
         $stmt = null;
         
     } catch (PDOException $e) {
-        getErrors("db_failed");
+        $_SESSION['auth_error'] = 'db_failed';
         return false;
     }
 
     if (!$user || !password_verify($login['password'], $user['password'])) {
-        getErrors('invalid_credentials');
+        $_SESSION['auth_error'] = 'invalid_credentials';
         return false;
     }
 

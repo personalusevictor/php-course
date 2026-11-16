@@ -11,6 +11,16 @@ function get_all_products(PDO $conn) {
     }
 }
 
+function product_by_id(PDO $conn, int $id) {
+    try {
+        $stmt = $conn->prepare("SELECT p.category_id, p.products_name, p.products_description, p.brand, p.model, p.products_image, p.price, p.stock, c.category_name, c.category_description FROM products p JOIN categories c ON p.category_id = c.category_id WHERE p.products_id = :id");
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        throw new Exception('query_failed', 0, $e);
+    }
+}
+
 function model_key(array $products): string {
     return hash('sha256', json_encode([$products['category_id'], $products['products_id']]));
 }

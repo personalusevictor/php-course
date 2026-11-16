@@ -1,5 +1,13 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once(dirname(__DIR__) . '/helpers/currency.php');
+require_once(dirname(__DIR__) . '/helpers/errors.php');
+
+$auth_error = $_SESSION['auth_error'] ?? null;
+unset($_SESSION['auth_error']);
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +18,9 @@ require_once(dirname(__DIR__) . '/helpers/currency.php');
     <title>Página de Autenticación - VTechShop</title>
 </head>
 <body>
+    <?php if (isset($auth_error)): ?>
+        <?php getErrors($auth_error); ?>
+    <?php endif; ?>
     <form method="POST" action="auth-process.php" autocomplete="on">
         <input type="hidden" name="action" value="register">
         <label for="register-username">Nombre de usuario</label><input type="text" id="register-username" name="username" autocomplete="username" maxlength="50" required />
