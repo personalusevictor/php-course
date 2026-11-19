@@ -1,0 +1,1608 @@
+{
+  "updated": "2026-11-19",
+  "format": "WebP",
+  "presentation": "Fondo blanco y encuadre común con object-fit: contain, sin recortar el producto. Fotografías originales convertidas a WebP; no se han generado modelos ficticios.",
+  "without_image": {
+    "category": "Procesadores",
+    "name": "Procesador AMD Ryzen 5 5600",
+    "brand": "AMD",
+    "model": "Ryzen 5 5600"
+  },
+  "products": [
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 5 7600",
+        "brand": "AMD",
+        "model": "Ryzen 5 7600"
+      },
+      "file": "assets/products/amd-ryzen-5-7600.webp",
+      "source_image": "https://cdn.ibertronica.es/product/MI100-100001015BOX_00001.jpeg",
+      "source_page": "https://ibertronica.es/amd-ryzen-5-7600-38ghz-socket-am5"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 5 9600X",
+        "brand": "AMD",
+        "model": "Ryzen 5 9600X"
+      },
+      "file": "assets/products/amd-ryzen-5-9600x.webp",
+      "source_image": "https://cdn.ibertronica.es/product/MI100-100001405WOF_00001.jpeg",
+      "source_page": "https://ibertronica.es/amd-ryzen-5-9600x-39ghz-socket-am5-tray"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 7 5700X",
+        "brand": "AMD",
+        "model": "Ryzen 7 5700X"
+      },
+      "file": "assets/products/amd-ryzen-7-5700x.webp",
+      "source_image": "https://cdn.ibertronica.es/product/MI100-100000926WOF_00001.jpeg",
+      "source_page": "https://ibertronica.es/amd-ryzen-7-5700x-34ghz-socket-am4-tray"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 7 7700X",
+        "brand": "AMD",
+        "model": "Ryzen 7 7700X"
+      },
+      "file": "assets/products/amd-ryzen-7-7700x.webp",
+      "source_image": "https://artline.ua/storage/images/products/10978/gallery/135722/1400_gallery_1674732545467173_0.webp",
+      "source_page": "https://artline.ua/uk/product/protsessor-amd-ryzen-7-7700x-8c16t-45-54ghz-32mb-105w-am5-box-100-100000591wof"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 7 7800X3D",
+        "brand": "AMD",
+        "model": "Ryzen 7 7800X3D"
+      },
+      "file": "assets/products/amd-ryzen-7-7800x3d.webp",
+      "source_image": "https://cdn.ibertronica.es/product/MI100-100000910WOF_00001.jpeg",
+      "source_page": "https://ibertronica.es/amd-ryzen-7-7800x3d-42ghz-socket-am5"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 7 9700X",
+        "brand": "AMD",
+        "model": "Ryzen 7 9700X"
+      },
+      "file": "assets/products/amd-ryzen-7-9700x.webp",
+      "source_image": "https://cdn.ibertronica.es/product/MI100-100001404WOF_00001.jpeg",
+      "source_page": "https://ibertronica.es/amd-ryzen-7-9700x-38ghz-socket-am5-tray"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 7 9800X3D",
+        "brand": "AMD",
+        "model": "Ryzen 7 9800X3D"
+      },
+      "file": "assets/products/amd-ryzen-7-9800x3d.webp",
+      "source_image": "https://bizweb.dktcdn.net/thumb/grande/100/492/473/products/thanhphatdesktopremake-cpuryzen-7-9800x3d-2.jpg?v=1744443710663",
+      "source_page": "https://thanhphatbn.com.vn/cpu-amd-ryzen-7-9800x3d-zen-5-am5"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 9 9900X",
+        "brand": "AMD",
+        "model": "Ryzen 9 9900X"
+      },
+      "file": "assets/products/amd-ryzen-9-9900x.webp",
+      "source_image": "https://cdn.raiq.dev/YReTC9rFOl.jpg",
+      "source_page": "https://raiq.com/ar-sa/cpu/amd-ryzen-9-9900x-44-ghz-12-core-am5/9-9900x-44-ghz-12-core"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador AMD Ryzen 9 9950X",
+        "brand": "AMD",
+        "model": "Ryzen 9 9950X"
+      },
+      "file": "assets/products/amd-ryzen-9-9950x.webp",
+      "source_image": "https://hanoicomputercdn.com/media/product/90482_cpu_amd_ryzen_9_9950x_tray_chinh_hang.jpg",
+      "source_page": "https://hacom.vn/cpu-amd-ryzen-9-9950x-tray-chinh-hang"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador Intel Core i5-14400F",
+        "brand": "Intel",
+        "model": "Core i5-14400F"
+      },
+      "file": "assets/products/intel-core-i5-14400f.webp",
+      "source_image": "https://bizweb.dktcdn.net/100/492/473/products/thanhphatdesktopremake-cpuintelcore-i5-14400f.jpg?v=1744617993673",
+      "source_page": "https://thanhphatbn.com.vn/cpu-intel-core-i5-14400f-up-to-4-7ghz-10-nhan-16-luong-20mb-cache-65w-lga-1700"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador Intel Core i7-14700K",
+        "brand": "Intel",
+        "model": "Core i7-14700K"
+      },
+      "file": "assets/products/intel-core-i7-14700k.webp",
+      "source_image": "https://sigmatiendas.com/cdn/shop/files/Procesador-Intel-Core-i7-14700K-20-Nucleos-3_4GHz-30MB-cache-Socket-LGA1700_1_grande.jpg?v=1738682164",
+      "source_page": "https://sigmatiendas.com/products/procesador-intel-core-i7-14700k-20-nucleos-3-4-ghz-30-mb-cache-socket-lga-1700"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador Intel Core Ultra 5 245K",
+        "brand": "Intel",
+        "model": "Core Ultra 5 245K"
+      },
+      "file": "assets/products/intel-core-ultra-5-245k.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/17/51/LD0006175190.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00648125.html"
+    },
+    {
+      "product": {
+        "category": "Procesadores",
+        "name": "Procesador Intel Core Ultra 7 265K",
+        "brand": "Intel",
+        "model": "Core Ultra 7 265K"
+      },
+      "file": "assets/products/intel-core-ultra-7-265k.webp",
+      "source_image": "https://cdn.visaovip.com/img/prod/processador-intel-core-ultra-7-265k-socket-lga-1851-30mb/48620/686254.jpg",
+      "source_page": "https://www.visaovip.com/prod/cpu-intel/processador-intel-core-ultra-7-265k-socket-lga-1851-30mb/48620/"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS",
+        "brand": "MSI",
+        "model": "GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS"
+      },
+      "file": "assets/products/msi-geforce-rtx-5060-ti-16g-ventus-2x-oc-plus.webp",
+      "source_image": "https://emarque.co/cdn/shop/files/1_c0403ec9-4203-4d95-8277-8f88e7d4a147.png?v=1750654862",
+      "source_page": "https://emarque.co/products/msi-geforce-rtx-5060-ti-16g-ventus-2x-oc-plus-16gb-gddr7-graphic-card"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica MSI GeForce RTX 5070 12G VENTUS 2X OC",
+        "brand": "MSI",
+        "model": "GeForce RTX 5070 12G VENTUS 2X OC"
+      },
+      "file": "assets/products/msi-geforce-rtx-5070-12g-ventus-2x-oc.webp",
+      "source_image": "https://cdn.nexths.it/scheda_prodotto/image/1000/4711377308229.jpg",
+      "source_page": "https://www.nexths.it/Products/details/sku/4711377308229"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 4060",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4060"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-4060.webp",
+      "source_image": "https://ithardware.pl/media/artykul/27799/kfa2_rtx_4060_cd71cdd1e6.jpg",
+      "source_page": "https://ithardware.pl/aktualnosci/nvidia_geforce_rtx_4060_premiera_cena_specyfikacja-27799.html"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 4060 Ti 8GB",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4060 Ti 8GB"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-4060-ti-8gb.webp",
+      "source_image": "https://i.ebayimg.com/images/g/f1oAAeSwxM9n0ZLS/s-l500.jpg",
+      "source_page": "https://www.ebay.com/itm/205348514349"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 4070 SUPER",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4070 SUPER"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-4070-super.webp",
+      "source_image": "https://media.iprsoftware.com/219/files/20240/geforce-rtx-4070-super-gpu-image.jpg?AWSAccessKeyId=AKIATACLJRQCWOP6ZJOW&Expires=1773164303&Signature=uqd9%2FzvUBhhhyXEGreD%2FW2d6%2F38%3D&response-content-disposition=attachment&versionId=hBAhdJyywQ7pjjW4ctPqzPiAQoqdXXKR",
+      "source_page": "https://nvidianews.nvidia.com/news/geforce-rtx-40-super-series"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 4080 SUPER",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4080 SUPER"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-4080-super.webp",
+      "source_image": "https://www.itcreations.com/dist/landing/i/rtx-4080-super/carousel/rtx-4080-super-1.png",
+      "source_page": "https://www.itcreations.com/nvidia-gpu/nvidia-geforce-rtx-4080-super-gpu"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 5060",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 5060"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-5060.webp",
+      "source_image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/fd9dd7a0-faac-4616-b850-efb48c8f8c93.png%3BmaxHeight%3D1920%3BmaxWidth%3D900?format=webp",
+      "source_page": "https://www.bestbuy.com/product/pny-dual-fan-oc-geforce-rtx-5060-8gb-gddr7-pci-express-5-0-x8-atx-graphics-card-rtx-5060-overclocked-dual-fan-gpu/JXF2C4R7Y6"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 5070 Ti",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 5070 Ti"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-5070-ti.webp",
+      "source_image": "https://www.cfd.co.jp/webpim/product/image/p/prime-rtx5070ti-16g/prime-rtx5070ti-16g/prime-rtx5070ti-16g__0100.png",
+      "source_page": "https://www.cfd.co.jp/biz/product/detail/prime-rtx5070ti-16g.html"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica NVIDIA GeForce RTX 5080",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 5080"
+      },
+      "file": "assets/products/nvidia-geforce-rtx-5080.webp",
+      "source_image": "https://media.icdn.hu/content/entity/2025/01/77714/679b876182de6nvidia-geforce-rtx-5080-logo.jpg",
+      "source_page": "https://iponshop.de/zeitschrift/artikel/die-unabhangigen-geforce-rtx-5080-tests-sind-veroffentlicht"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica AMD Radeon RX 9060 XT 16GB",
+        "brand": "AMD",
+        "model": "Radeon RX 9060 XT 16GB"
+      },
+      "file": "assets/products/amd-radeon-rx-9060-xt-16gb.webp",
+      "source_image": "https://microgem.fbitsstatic.net/img/p/placa-de-video-asrock-radeon-rx-9060-xt-challenger-oc-16gb-gddr6-128-bits-dual-fan-fsr-90-ga5qzz-00uanf-108504/297244.jpg?h=420&qs=ignore&v=202601141643&w=420",
+      "source_page": "https://www.microgem.com.br/produto/placa-de-video-asrock-radeon-rx-9060-xt-challenger-oc-16gb-gddr6-128-bits-dual-fan-fsr-90-ga5qzz-00uanf-108504"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica AMD Radeon RX 9070",
+        "brand": "AMD",
+        "model": "Radeon RX 9070"
+      },
+      "file": "assets/products/amd-radeon-rx-9070.webp",
+      "source_image": "https://assets.umart.com.au/newsite/images/202503/source_img/Gigabyte-Radeon-RX-9070-Gaming-16G-OC-Graphics-Card-R9070GAMING-OC-16GD-7.jpg",
+      "source_page": "https://www.umart.com.au/product/gigabyte-radeon-rx-9070-gaming-16g-oc-graphics-card-r9070gaming-oc-16gd-81938"
+    },
+    {
+      "product": {
+        "category": "Tarjetas gráficas",
+        "name": "Tarjeta gráfica AMD Radeon RX 9070 XT",
+        "brand": "AMD",
+        "model": "Radeon RX 9070 XT"
+      },
+      "file": "assets/products/amd-radeon-rx-9070-xt.webp",
+      "source_image": "https://static.msystems.gr/photos/big_photos/50646.jpg",
+      "source_page": "https://www.msystems.gr/graphics-cards/gigabyte-radeon-rx-9070-xt-gaming-oc-16g-gv-r9070xtgaming-oc-16gd"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASUS TUF GAMING B650-PLUS WIFI",
+        "brand": "ASUS",
+        "model": "TUF GAMING B650-PLUS WIFI"
+      },
+      "file": "assets/products/asus-tuf-gaming-b650-plus-wifi.webp",
+      "source_image": "https://media.rueducommerce.fr/rd/products/18c/18c86f3133cfee628a10e9b8f20477ebd8b480e9.jpg",
+      "source_page": "https://www.rueducommerce.fr/p/r24060017460.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASUS PRIME B650-PLUS",
+        "brand": "ASUS",
+        "model": "PRIME B650-PLUS"
+      },
+      "file": "assets/products/asus-prime-b650-plus.webp",
+      "source_image": "https://media.rueducommerce.fr/rd/products/a6a/a6a2fe8ad92f39ccb7bf7ba264668e3ac69c11f1.png",
+      "source_page": "https://www.rueducommerce.fr/p/r24060017464.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASUS ROG STRIX B650E-F GAMING WIFI",
+        "brand": "ASUS",
+        "model": "ROG STRIX B650E-F GAMING WIFI"
+      },
+      "file": "assets/products/asus-rog-strix-b650e-f-gaming-wifi.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/98/62/LD0005986206.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00521000.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASUS TUF GAMING X670E-PLUS WIFI",
+        "brand": "ASUS",
+        "model": "TUF GAMING X670E-PLUS WIFI"
+      },
+      "file": "assets/products/asus-tuf-gaming-x670e-plus-wifi.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/98/17/LD0005981742.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00519068.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASUS ROG STRIX X870-F GAMING WIFI",
+        "brand": "ASUS",
+        "model": "ROG STRIX X870-F GAMING WIFI"
+      },
+      "file": "assets/products/asus-rog-strix-x870-f-gaming-wifi.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/16/58/LD0006165841.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00640240.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base MSI MAG B650 TOMAHAWK WIFI",
+        "brand": "MSI",
+        "model": "MAG B650 TOMAHAWK WIFI"
+      },
+      "file": "assets/products/msi-mag-b650-tomahawk-wifi.webp",
+      "source_image": "https://cdn.cs.1worldsync.com/c0/b2/c0b27cb4-8e9a-41e2-8d21-70e8f5b688a0.jpg",
+      "source_page": "https://www.uk.shi.com/product/45477587/MSI-MAG-B650-TOMAHAWK-WIFI"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base MSI PRO B650-S WIFI",
+        "brand": "MSI",
+        "model": "PRO B650-S WIFI"
+      },
+      "file": "assets/products/msi-pro-b650-s-wifi.webp",
+      "source_image": "https://cdn.multitronic.fi/images/prod/1/2/PRO%20B650-S%20WIFI-1.webp",
+      "source_page": "https://www.multitronic.fi/en/products/4248913"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base MSI B760 GAMING PLUS WIFI",
+        "brand": "MSI",
+        "model": "B760 GAMING PLUS WIFI"
+      },
+      "file": "assets/products/msi-b760-gaming-plus-wifi.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/03/38/LD0006033809.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00552870.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base MSI MAG Z790 TOMAHAWK WIFI",
+        "brand": "MSI",
+        "model": "MAG Z790 TOMAHAWK WIFI"
+      },
+      "file": "assets/products/msi-mag-z790-tomahawk-wifi.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/98/29/LD0005982935.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00519600.html"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base Gigabyte B650 AORUS ELITE AX",
+        "brand": "Gigabyte",
+        "model": "B650 AORUS ELITE AX"
+      },
+      "file": "assets/products/gigabyte-b650-aorus-elite-ax.webp",
+      "source_image": "https://i5.walmartimages.com/seo/GIGABYTE-B650-AORUS-ELITE-AX-Motherboard-AMD-B650-Chipset-Dual-Channel-SMD-DDR5-Memory-AM5-Socket-Supports-AMD-Ryzen-7000-Series-Processors_ee2d735d-c001-4183-bc7b-9e3a5877ab0c.bc5833f7573b5271c264387c0f946c6f.png",
+      "source_page": "https://www.walmart.com/ip/GIGABYTE-B650-AORUS-ELITE-AX-Motherboard-AMD-B650-Chipset-Dual-Channel-SMD-DDR5-Memory-AM5-Socket-Supports-AMD-Ryzen-7000-Series-Processors/1542016106"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base Gigabyte Z790 AORUS ELITE AX",
+        "brand": "Gigabyte",
+        "model": "Z790 AORUS ELITE AX"
+      },
+      "file": "assets/products/gigabyte-z790-aorus-elite-ax.webp",
+      "source_image": "https://media-cdn.bnn.in.th/420276/gigabyte-z790-aorus-elite-ax-content-1.jpg",
+      "source_page": "https://www.bnn.in.th/th/p/gigabyte-mainboard-z790-aorus-elite-ax-rev-11-ddr5-lga-1700-4719331849467_zompy7"
+    },
+    {
+      "product": {
+        "category": "Placas base",
+        "name": "Placa base ASRock B650M Pro RS WiFi",
+        "brand": "ASRock",
+        "model": "B650M Pro RS WiFi"
+      },
+      "file": "assets/products/asrock-b650m-pro-rs-wifi.webp",
+      "source_image": "https://computerorbit.com/cdn/shop/files/B650MProRSWiFi_L1_1200x600_crop_center.png?v=1686912792",
+      "source_page": "https://computerorbit.com/products/asrock-b650m-pro-rs-wifi-matx-am5-motherboard?srsltid=AfmBOoryAlnY9HvVsTuTjvICC91oZW7oCZYAz5abNCWaxl1mNFuVt8HG"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Kingston FURY Beast DDR5 32GB (2x16GB) 5600MT/s",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR5 32GB (2x16GB) 5600MT/s"
+      },
+      "file": "assets/products/kingston-fury-beast-ddr5-32gb-2x16gb-5600mt-s.webp",
+      "source_image": "https://lezamapc.com.ar/22651-large_default/memoria-ddr5-32gb-5600-pack-2x16gb-kingston-fury-beast.jpg",
+      "source_page": "https://lezamapc.com.ar/ddr5/11575-memoria-ddr5-32gb-5600-pack-2x16gb-kingston-fury-beast.html"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000MT/s",
+        "brand": "Kingston",
+        "model": "FURY Beast RGB DDR5 32GB (2x16GB) 6000MT/s"
+      },
+      "file": "assets/products/kingston-fury-beast-rgb-ddr5-32gb-2x16gb-6000mt-s.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/95/90/LD0005959023_0005959075_0005959091_0005959106_0005959110_0005982047_0006173018.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00645488.html"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Kingston FURY Renegade DDR5 32GB (2x16GB) 6400MT/s",
+        "brand": "Kingston",
+        "model": "FURY Renegade DDR5 32GB (2x16GB) 6400MT/s"
+      },
+      "file": "assets/products/kingston-fury-renegade-ddr5-32gb-2x16gb-6400mt-s.webp",
+      "source_image": "https://thumb.pccomponentes.com/w-530-530/articles/1071/10711457/1507-kingston-fury-renegade-white-ddr5-6400mhz-32gb-2x16gb-cl32.jpg",
+      "source_page": "https://www.pccomponentes.com/kingston-fury-renegade-white-ddr5-6400mhz-32gb-2x16gb-cl32"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Kingston FURY Beast DDR4 16GB (2x8GB) 3200MT/s",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR4 16GB (2x8GB) 3200MT/s"
+      },
+      "file": "assets/products/kingston-fury-beast-ddr4-16gb-2x8gb-3200mt-s.webp",
+      "source_image": "https://www.jumbo-computer.com/cdn/shop/files/6dd2b3e9-ef77-4667-b03b-1b23c0334771_800x.jpg?v=1704874802",
+      "source_page": "https://www.jumbo-computer.com/en/products/kingston-16gb-kit-2x8gb-kf432c16bbk2-16-fury-beast-ddr4-3200mhz-memory"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz",
+        "brand": "Corsair",
+        "model": "Vengeance DDR5 32GB (2x16GB) 5600MHz"
+      },
+      "file": "assets/products/corsair-vengeance-ddr5-32gb-2x16gb-5600mhz.webp",
+      "source_image": "https://http2.mlstatic.com/D_NQ_NP_876147-MLB82797511770_032025-O.webp",
+      "source_page": "https://www.mercadolivre.com.br/kit-memoria-pc-32gb-ddr5-5600mhz-cl40-corsair-vengeance/up/MLBU3065841667"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000MHz",
+        "brand": "Corsair",
+        "model": "Vengeance RGB DDR5 32GB (2x16GB) 6000MHz"
+      },
+      "file": "assets/products/corsair-vengeance-rgb-ddr5-32gb-2x16gb-6000mhz.webp",
+      "source_image": "https://paksell.pk/cdn/shop/products/corsair-vengeance-rgb-ddr5-ram-32gb-2x16gb-6000mhz-cl36-black-in-pakistan-paksellpk-288015.jpg?v=1703729607",
+      "source_page": "https://paksell.pk/products/corsair-vengeance-rgb-32gb-6000mhz-ddr5-ram-in-pakistan"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Corsair Dominator Titanium DDR5 32GB (2x16GB) 6000MHz",
+        "brand": "Corsair",
+        "model": "Dominator Titanium DDR5 32GB (2x16GB) 6000MHz"
+      },
+      "file": "assets/products/corsair-dominator-titanium-ddr5-32gb-2x16gb-6000mhz.webp",
+      "source_image": "https://bizweb.dktcdn.net/100/329/122/products/ram-pc-corsair-dominator-titanium-2-c5fd54b4-0742-4f01-aab5-3013cb8ab7fa-db2b321b-3b96-422c-abff-aa59a5b2923d-2db71910-15a4-4ddd-a8c4-b9a61d5a3b4e-cea8851f-b750-4a30-b77a-9031bea1354a.jpg?v=1713762733273",
+      "source_page": "https://memoryzone.com.vn/ram-pc-corsair-dominator-titanium-32gb-6000mhz-ddr5-2x16gb-cmp32gx5m2b6000c30"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Corsair Vengeance LPX DDR4 32GB (2x16GB) 3200MHz",
+        "brand": "Corsair",
+        "model": "Vengeance LPX DDR4 32GB (2x16GB) 3200MHz"
+      },
+      "file": "assets/products/corsair-vengeance-lpx-ddr4-32gb-2x16gb-3200mhz.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/31/99/LD0005319901_2.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00271616.html"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM G.SKILL Flare X5 DDR5 32GB (2x16GB) 6000MT/s",
+        "brand": "G.SKILL",
+        "model": "Flare X5 DDR5 32GB (2x16GB) 6000MT/s"
+      },
+      "file": "assets/products/g-skill-flare-x5-ddr5-32gb-2x16gb-6000mt-s.webp",
+      "source_image": "https://dynaquestpc.com/cdn/shop/files/87_ee57a54d-09fc-47e7-80c7-1e5e3b60b77e.png?v=1762252655&width=1080",
+      "source_page": "https://dynaquestpc.com/collections/new-arrivals/products/g-skill-flare-x5-32gb-2x16gb-white-ddr5-6000mhz-cl36-36-36-96-1-35v-desktop-memory-f5-6000j3636f16gx2-fx5w-amd-expo"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM G.SKILL Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000MT/s",
+        "brand": "G.SKILL",
+        "model": "Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000MT/s"
+      },
+      "file": "assets/products/g-skill-trident-z5-neo-rgb-ddr5-32gb-2x16gb-6000mt-s.webp",
+      "source_image": "https://www.jumbo-computer.com/cdn/shop/files/173613377611_800x.webp?v=1746100240",
+      "source_page": "https://www.jumbo-computer.com/en/products/g-skill-32gb-kit-2x16gb-trident-z5-neo-rgb-white-f5-6000j3036f16gx2-tz5nrw-ddr5-6000mhz-memory-amd-expo"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM G.SKILL Ripjaws S5 DDR5 32GB (2x16GB) 6000MT/s",
+        "brand": "G.SKILL",
+        "model": "Ripjaws S5 DDR5 32GB (2x16GB) 6000MT/s"
+      },
+      "file": "assets/products/g-skill-ripjaws-s5-ddr5-32gb-2x16gb-6000mt-s.webp",
+      "source_image": "https://www.dateks.lv/images/pic/2400/2400/262/1318.jpg",
+      "source_page": "https://www.dateks.lv/en/cenas/atmina-ram/860176-g-skill-ripjaws-s5-white-ddr5-32gb-6000mt-s-cl32-kit-of-2"
+    },
+    {
+      "product": {
+        "category": "Memoria RAM",
+        "name": "Memoria RAM Crucial Pro DDR5 32GB (2x16GB) 5600MT/s",
+        "brand": "Crucial",
+        "model": "Pro DDR5 32GB (2x16GB) 5600MT/s"
+      },
+      "file": "assets/products/crucial-pro-ddr5-32gb-2x16gb-5600mt-s.webp",
+      "source_image": "https://paksell.pk/cdn/shop/products/crucial-pro-ddr5-ram-32gb-kit-2x16gb-5600mhz-for-pc-in-pakistan-paksellpk-914177_700x700.jpg?v=1703729606",
+      "source_page": "https://paksell.pk/products/crucial-pro-32gb-5600mhz-ddr5-desktop-ram-in-pakistan"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 990 PRO 1TB",
+        "brand": "Samsung",
+        "model": "990 PRO 1TB"
+      },
+      "file": "assets/products/samsung-990-pro-1tb.webp",
+      "source_image": "https://imgcache.dealmoon.com/thumbimg.dealmoon.com/dealmoon/414/296/a9d/abd998507dab59a465b4e5d.jpg_480_480_2_300d.jpg",
+      "source_page": "https://www.dealmoon.com/en/product/samsung-990-pro-1tb-pcie-gen-4-x4-nvme-m-2-internal-ssd/6475363"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 990 PRO 2TB",
+        "brand": "Samsung",
+        "model": "990 PRO 2TB"
+      },
+      "file": "assets/products/samsung-990-pro-2tb.webp",
+      "source_image": "https://images3.kabum.com.br/produtos/fotos/sync_mirakl/442823/xlarge/SSD-Samsung-990-Pro-2TB-Nvme-M-2-2280-Leitura-at-7450mb-s-e-Grava-o-at-6900mb-s-_1753470294.jpg",
+      "source_page": "https://www.kabum.com.br/produto/442823/ssd-samsung-990-pro-2tb-nvme-m-2-2280-leitura-ate-7450mb-s-e-gravacao-ate-6900mb-s"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 990 EVO Plus 1TB",
+        "brand": "Samsung",
+        "model": "990 EVO Plus 1TB"
+      },
+      "file": "assets/products/samsung-990-evo-plus-1tb.webp",
+      "source_image": "https://media.lifeinformatica.com/contents/assets/SDSAM098/imgs/MZ-V9S1T0BW-01.png",
+      "source_page": "https://lifeinformatica.com/tienda/samsung-990-evo-plus-1tb-ssd-m-2-nvme-pcie-5-0-x2/"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 990 EVO Plus 2TB",
+        "brand": "Samsung",
+        "model": "990 EVO Plus 2TB"
+      },
+      "file": "assets/products/samsung-990-evo-plus-2tb.webp",
+      "source_image": "https://static.comet.it/b2c/public/products/SAM08222M/a663a98fff20483b9777c1de21b809ae-67e6668a8a39b6.60590715-0-12.jpg",
+      "source_page": "https://www.comet.it/samsung-ssd-2tb-990-evo-plus-nvme-m-2-mz-v9s2t0bw-SAM08222M-prdtt?srsltid=AfmBOorE3RI4g6UtqLNi8YyR_X5JXzYLb4TLm7cGSy3D6tjuBzN4f44i"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 9100 PRO 2TB",
+        "brand": "Samsung",
+        "model": "9100 PRO 2TB"
+      },
+      "file": "assets/products/samsung-9100-pro-2tb.webp",
+      "source_image": "https://vishalperipherals.com/cdn/shop/files/mz-vap2t0bw-image.webp?v=1772455286&width=1445",
+      "source_page": "https://vishalperipherals.com/products/samsung-9100-pro-2tb-nvme-gen5-ssd-mz-vap2t0bw"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Samsung 870 EVO 1TB",
+        "brand": "Samsung",
+        "model": "870 EVO 1TB"
+      },
+      "file": "assets/products/samsung-870-evo-1tb.webp",
+      "source_image": "https://48y9ftle.cdn.imgeng.in/katalozi/slike/velike/142202-a7bb85f5-4f90-4081-83b6-891dfd85fc85.jpg?preset=dvn1",
+      "source_page": "https://www.multicom.me/a/142202/samsung-870-evo-1tb-ssd"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD WD_BLACK SN850X 1TB",
+        "brand": "WD_BLACK",
+        "model": "SN850X 1TB"
+      },
+      "file": "assets/products/wd-black-sn850x-1tb.webp",
+      "source_image": "https://cdn.multitronic.fi/images/prod/2/9/WDS100T2X0E-00BCA0-2.webp",
+      "source_page": "https://www.multitronic.fi/en/products/3576432"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD WD_BLACK SN850X 2TB",
+        "brand": "WD_BLACK",
+        "model": "SN850X 2TB"
+      },
+      "file": "assets/products/wd-black-sn850x-2tb.webp",
+      "source_image": "https://www.scan.co.uk/images/products/xlarge/3448882-xl-a.jpg",
+      "source_page": "https://www.scan.co.uk/products/2tb-wd-black-sn850x-m2-2280-pcie-40-x4-nvme-ssd-7300mb-s-read-6600mb-s-write-pc-ps5"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD WD Blue SN580 1TB",
+        "brand": "WD Blue",
+        "model": "SN580 1TB"
+      },
+      "file": "assets/products/wd-blue-sn580-1tb.webp",
+      "source_image": "https://i5.walmartimages.com/seo/WD-Blue-1TB-SN580-NVMe-Internal-SSD-WDBWMY0010BBL-WRWM_28933fdc-65d2-4eef-95f4-474478cfd226.51d02b302ea9785e967da33be118bf8b.jpeg?odnBg=FFFFFF&odnHeight=640&odnWidth=640",
+      "source_page": "https://business.walmart.com/ip/WD-Blue-1TB-SN580-NVMe-Internal-SSD-WDBWMY0010BBL-WRWM/5080177169"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Crucial T500 1TB",
+        "brand": "Crucial",
+        "model": "T500 1TB"
+      },
+      "file": "assets/products/crucial-t500-1tb.webp",
+      "source_image": "https://static-media.laptopoutlet.co.uk/catalog/product/0/4/04a90c54baea5b21cc96a3f984a9c54d.jpg?height=650",
+      "source_page": "https://www.laptopoutlet.co.uk/crucial-t500-1tb-ct1000t500ssd8.html"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Crucial P3 Plus 2TB",
+        "brand": "Crucial",
+        "model": "P3 Plus 2TB"
+      },
+      "file": "assets/products/crucial-p3-plus-2tb.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/96/44/LD0005964405_0005964434_0005964442.jpg",
+      "source_page": "https://www.ldlc.com/es-es/ficha/PB00503991.html"
+    },
+    {
+      "product": {
+        "category": "Almacenamiento SSD",
+        "name": "SSD Kingston NV3 1TB",
+        "brand": "Kingston",
+        "model": "NV3 1TB"
+      },
+      "file": "assets/products/kingston-nv3-1tb.webp",
+      "source_image": "https://gizmodo.com/app/uploads/2026/09/kingston-deal-960x640.jpg",
+      "source_page": "https://gizmodo.com/kingston-nv3-1tb-nvme-ssd-is-now-barely-more-than-the-500gb-model-after-a-nearly-30-price-drop-2000810426"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair RM650e 650W",
+        "brand": "Corsair",
+        "model": "RM650e 650W"
+      },
+      "file": "assets/products/corsair-rm650e-650w.webp",
+      "source_image": "https://www.firstshop.co.za/cdn/shop/files/cp-9020302-ww-power-supply-units-1153726677.jpg?v=1743612670&width=1000",
+      "source_page": "https://www.firstshop.co.za/products/corsair-rm650e-650w-gold-fully-modular-atx-psu-cp-9020302-ww-325146"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair RM750e 750W",
+        "brand": "Corsair",
+        "model": "RM750e 750W"
+      },
+      "file": "assets/products/corsair-rm750e-750w.webp",
+      "source_image": "https://www.dospara.co.jp/dw/image/v2/BGKW_PRD/on/demandware.static/-/Sites-dospara-catalog-ms/default/dw2d84bebf/img/large/parts/2025/519917-2.jpg?sw=400",
+      "source_page": "https://www.dospara.co.jp/SBR83/IC519917.html"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair RM850e 850W",
+        "brand": "Corsair",
+        "model": "RM850e 850W"
+      },
+      "file": "assets/products/corsair-rm850e-850w.webp",
+      "source_image": "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/784956463/784956463_3_MC/00f079d1ca7f428a8636d26fece3a69d.jpg",
+      "source_page": "https://www.teknosa.com/corsair-rm850e-cp-9020296-eu-850w-80-gold-pcie-51-tam-moduler-atx-31-low-noise-guc-kaynagi-p-784956463"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair RM1000e 1000W",
+        "brand": "Corsair",
+        "model": "RM1000e 1000W"
+      },
+      "file": "assets/products/corsair-rm1000e-1000w.webp",
+      "source_image": "https://media-cdn.bnn.in.th/514097/corsair-rm1000e-gold-2-square_medium.jpg",
+      "source_page": "https://www.bnn.in.th/th/p/computer-hardware-diy/case-and-power-supply/power-supply/corsair-power-supply-rm-1000e-1000watt-80-plus-gold-black-cp-9020297-na-840006691365_rqe1jv"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair RM850x 850W",
+        "brand": "Corsair",
+        "model": "RM850x 850W"
+      },
+      "file": "assets/products/corsair-rm850x-850w.webp",
+      "source_image": "https://cityshop.mx/assets/imagenes/productos/cityshop-cp-9020270-na-fuente-de-poder-corsair-cp-9020270-na_1.webp",
+      "source_page": "https://cityshop.mx/producto/fuente-de-poder-corsair-cp-9020270-na-rm850x-850w-full-modular-80-plusgoldnegro"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Corsair SF750 750W",
+        "brand": "Corsair",
+        "model": "SF750 750W"
+      },
+      "file": "assets/products/corsair-sf750-750w.webp",
+      "source_image": "https://www.newhomepc.net/assets/images/products/4f/cs-fuen59615.jpg",
+      "source_page": "https://www.newhomepc.net/componentes/fuentes-alimentacion/fuente-alimentacion-sfx-750w-corsair-sf750-80-plus-platinum-modular"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Seasonic FOCUS GX-650 650W",
+        "brand": "Seasonic",
+        "model": "FOCUS GX-650 650W"
+      },
+      "file": "assets/products/seasonic-focus-gx-650-650w.webp",
+      "source_image": "https://i5.walmartimages.com/seo/Seasonic-FOCUS-GX-650-650W-80-Gold-Full-Modular-Fan-Control-Fanless-Silent-Cooling-Mode-Perfect-Power-Supply-Gaming-Various-Application-SSR-650FX_08eecf78-108d-4384-a342-e25353b3658f.ce3e51833420b005a83ea137bfbaf801.jpeg",
+      "source_page": "https://www.walmart.com/ip/Seasonic-FOCUS-GX-650-650W-80-Gold-Full-Modular-Fan-Control-Fanless-Silent-Cooling-Mode-Perfect-Power-Supply-Gaming-Various-Application-SSR-650FX/445563130"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Seasonic FOCUS GX-750 750W",
+        "brand": "Seasonic",
+        "model": "FOCUS GX-750 750W"
+      },
+      "file": "assets/products/seasonic-focus-gx-750-750w.webp",
+      "source_image": "https://www.scan.co.uk/images/products/xlarge/3639541-xl-a.jpg",
+      "source_page": "https://www.scan.co.uk/products/750w-seasonic-focus-gx-pcie-5-fully-modular-80plus-gold-eps-single-rail-62a-135mm-fan-psu-black-atx"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Seasonic FOCUS GX-850 850W",
+        "brand": "Seasonic",
+        "model": "FOCUS GX-850 850W"
+      },
+      "file": "assets/products/seasonic-focus-gx-850-850w.webp",
+      "source_image": "https://www.cclonline.com/images/avante/FOCUS-GX-850-V4.png?format=jpg&height=1600&scale=canvas&trim.threshold=80&width=1600",
+      "source_page": "https://www.cclonline.com/focus-gx-850-v4-850w-seasonic-focus-gx-atx-3-1-modular-80-plus-gold-psu-496473/"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación Seasonic VERTEX GX-1000 1000W",
+        "brand": "Seasonic",
+        "model": "VERTEX GX-1000 1000W"
+      },
+      "file": "assets/products/seasonic-vertex-gx-1000-1000w.webp",
+      "source_image": "https://prod.scorptec.com.au/113/90/102183/289148_large.jpg",
+      "source_page": "https://www.scorptec.com.au/product/power-supplies/atx/102183-vertex-gx-1000"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación be quiet! Pure Power 12 M 750W",
+        "brand": "be quiet!",
+        "model": "Pure Power 12 M 750W"
+      },
+      "file": "assets/products/be-quiet-pure-power-12-m-750w.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/00/94/LD0006009438.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00540384.html"
+    },
+    {
+      "product": {
+        "category": "Fuentes de alimentación",
+        "name": "Fuente de alimentación be quiet! Straight Power 12 1000W",
+        "brand": "be quiet!",
+        "model": "Straight Power 12 1000W"
+      },
+      "file": "assets/products/be-quiet-straight-power-12-1000w.webp",
+      "source_image": "https://www.dateks.lv/images/pic/2400/2400/170/1460.jpg",
+      "source_page": "https://www.dateks.lv/en/cenas/psu-barosanas-bloki/978274-bequiet-straight-power-12-1000w-atx-3-0-80plus-platinum-pcie-5-0"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Noctua NH-D15 G2",
+        "brand": "Noctua",
+        "model": "NH-D15 G2"
+      },
+      "file": "assets/products/noctua-nh-d15-g2.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/17/13/LD0006171318.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00644070.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Noctua NH-D15 chromax.black",
+        "brand": "Noctua",
+        "model": "NH-D15 chromax.black"
+      },
+      "file": "assets/products/noctua-nh-d15-chromax-black.webp",
+      "source_image": "https://media2.nbb-cdn.de/images/products/NOCTUA_NH-D15_chromax.black_04_5b57.jpg",
+      "source_page": "https://www.notebooksbilliger.de/noctua%2Bnh%2Bd15%2Bchromaxblack%2Bcpu%2Bkhler%2B634549"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Noctua NH-U12S redux",
+        "brand": "Noctua",
+        "model": "NH-U12S redux"
+      },
+      "file": "assets/products/noctua-nh-u12s-redux.webp",
+      "source_image": "https://www.vali.bg/UserFiles/Product/gallery_1/6C162DAE-95F2-00C6-9F08-4BFDA66B1998.jpg?block=&cache=&h=640&w=640",
+      "source_page": "https://www.vali.bg/cpu-cooler-noctua-nh-u12s-redux"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Noctua NH-U12A chromax.black",
+        "brand": "Noctua",
+        "model": "NH-U12A chromax.black"
+      },
+      "file": "assets/products/noctua-nh-u12a-chromax-black.webp",
+      "source_image": "https://cdn.noctua.at/media/nh_u12a_chromax_black_4.jpg",
+      "source_page": "https://noctua.at/en/products/nh-u12a-chromax-black"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Noctua NH-L9i-17xx",
+        "brand": "Noctua",
+        "model": "NH-L9i-17xx"
+      },
+      "file": "assets/products/noctua-nh-l9i-17xx.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/90/71/LD0005907145_1.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00468769.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU DeepCool AK400",
+        "brand": "DeepCool",
+        "model": "AK400"
+      },
+      "file": "assets/products/deepcool-ak400.webp",
+      "source_image": "https://www.pcvcomp.cz/deepcool-chladic-ak400-120mm-fan-4x-heatpipes-pwm-pro-intel-i-amd_ie5294642.jpg",
+      "source_page": "https://www.pcvcomp.cz/deepcool-chladic-ak400-120mm-fan-4x-heatpipes-pwm-pro-intel-i-amd_d351845.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU DeepCool AK620",
+        "brand": "DeepCool",
+        "model": "AK620"
+      },
+      "file": "assets/products/deepcool-ak620.webp",
+      "source_image": "https://www.startech.com.bd/image/cache/catalog/cpu-cooler/deepcool/ak620/ak620-01-500x500.jpg",
+      "source_page": "https://www.startech.com.bd/deepcool-ak620-high-performance-cpu-cooler"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU be quiet! Dark Rock Pro 5",
+        "brand": "be quiet!",
+        "model": "Dark Rock Pro 5"
+      },
+      "file": "assets/products/be-quiet-dark-rock-pro-5.webp",
+      "source_image": "https://shop.jzelectronic.de/images/product_images/original_images/BQ-DarkRockPro5-1.jpg",
+      "source_page": "https://shop.jzelectronic.de/product_info.php?info=p71136_be-quiet--dark-rock-pro-5.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU be quiet! Pure Rock 2",
+        "brand": "be quiet!",
+        "model": "Pure Rock 2"
+      },
+      "file": "assets/products/be-quiet-pure-rock-2.webp",
+      "source_image": "https://images-na.ssl-images-amazon.com/images/I/71g31XkFxjL.jpg",
+      "source_page": "https://fado.vn/us/amazon/be-quiet-pure-rock-2-bk006-150w-tdp-cpu-cooler-intel-1700120020661150115111552011-3-square-ilm-amd-am4-B087VM7HT2.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Arctic Freezer 36",
+        "brand": "Arctic",
+        "model": "Freezer 36"
+      },
+      "file": "assets/products/arctic-freezer-36.webp",
+      "source_image": "https://eustore.gr/images/detailed/85/arctic_freezer_36_01_52sk2K.png",
+      "source_page": "https://eustore.gr/computer-components-ro-2/arctic-freezer-36-lga1851-lga1700-am5-ro/"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Arctic Liquid Freezer III 240",
+        "brand": "Arctic",
+        "model": "Liquid Freezer III 240"
+      },
+      "file": "assets/products/arctic-liquid-freezer-iii-240.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/11/35/LD0006113525.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00594596.html"
+    },
+    {
+      "product": {
+        "category": "Refrigeración",
+        "name": "Refrigeración CPU Arctic Liquid Freezer III 360",
+        "brand": "Arctic",
+        "model": "Liquid Freezer III 360"
+      },
+      "file": "assets/products/arctic-liquid-freezer-iii-360.webp",
+      "source_image": "https://geekd.dk/cdn/shop/files/e812309995756b89df2d0f3c39c51c4d.jpg?v=1736321330",
+      "source_page": "https://geekd.dk/products/arctic-cooling-liquid-freezer-iii-360-black?srsltid=AfmBOoo-egnbS61HwVt8E4CD69P8IgsP8ihTyqiras5gS1CftdK2CndN"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design North Charcoal Black TG Dark",
+        "brand": "Fractal Design",
+        "model": "North Charcoal Black TG Dark"
+      },
+      "file": "assets/products/fractal-design-north-charcoal-black-tg-dark.webp",
+      "source_image": "https://www.alternate.de/p/o/1/7/Fractal_Design_North_Charcoal_Black_TG_Dark__Tower_Geh_use%40%401858071_9.jpg",
+      "source_page": "https://www.alternate.de/Fractal-Design/North-Charcoal-Black-TG-Dark-Tower-Geh%C3%A4use/html/product/1858071"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design North Chalk White TG Clear",
+        "brand": "Fractal Design",
+        "model": "North Chalk White TG Clear"
+      },
+      "file": "assets/products/fractal-design-north-chalk-white-tg-clear.webp",
+      "source_image": "https://plecom.imgix.net/iit-438469-653861.png?auto=format&fill=solid&fill-color=ffffff&fit=fillmax&h=1000&w=1000",
+      "source_page": "https://www.ple.com.au/products/653861/fractal-design-north-tg-mid-tower-case-chalk-white"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design North XL Charcoal Black TG Dark",
+        "brand": "Fractal Design",
+        "model": "North XL Charcoal Black TG Dark"
+      },
+      "file": "assets/products/fractal-design-north-xl-charcoal-black-tg-dark.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/11/80/LD0006118049.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00597765.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design Pop Air RGB Black TG",
+        "brand": "Fractal Design",
+        "model": "Pop Air RGB Black TG"
+      },
+      "file": "assets/products/fractal-design-pop-air-rgb-black-tg.webp",
+      "source_image": "https://www.maxgaming.fi/bilder/artiklar/32999.jpg?m=1730898261",
+      "source_page": "https://www.maxgaming.fi/fi/kotelo/pop-air-rgb-tg-musta"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design Meshify 2 Black TG",
+        "brand": "Fractal Design",
+        "model": "Meshify 2 Black TG"
+      },
+      "file": "assets/products/fractal-design-meshify-2-black-tg.webp",
+      "source_image": "https://www.cap.com.hk/uploads/products/img_696a10b6d33664.53926640.webp",
+      "source_page": "https://www.cap.com.hk/products/detail/FD-C-MES2A-03"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Fractal Design Torrent Black TG Light Tint",
+        "brand": "Fractal Design",
+        "model": "Torrent Black TG Light Tint"
+      },
+      "file": "assets/products/fractal-design-torrent-black-tg-light-tint.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/87/16/LD0005871622_1.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00455911.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC NZXT H5 Flow Black",
+        "brand": "NZXT",
+        "model": "H5 Flow Black"
+      },
+      "file": "assets/products/nzxt-h5-flow-black.webp",
+      "source_image": "https://notebookspec.com/storage/pc-case/1325-1.png",
+      "source_page": "https://notebookspec.com/pc-case/1325-nzxt-h5-flow-black.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC NZXT H6 Flow Black",
+        "brand": "NZXT",
+        "model": "H6 Flow Black"
+      },
+      "file": "assets/products/nzxt-h6-flow-black.webp",
+      "source_image": "https://product.hstatic.net/200000722513/product/1698159670-h6-flow-hero-black_74bd8ecdf2f7432b8c2be64af995e4a4.png",
+      "source_page": "https://gearvn.com/products/vo-may-tinh-nzxt-h6-flow-black"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC NZXT H9 Flow Black",
+        "brand": "NZXT",
+        "model": "H9 Flow Black"
+      },
+      "file": "assets/products/nzxt-h9-flow-black.webp",
+      "source_image": "https://www.geekzonedz.com/6096-large_default/nzxt-h9-flow-noir.jpg",
+      "source_page": "https://www.geekzonedz.com/boitiers/2913-nzxt-h9-flow-noir.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Corsair 4000D Airflow Black",
+        "brand": "Corsair",
+        "model": "4000D Airflow Black"
+      },
+      "file": "assets/products/corsair-4000d-airflow-black.webp",
+      "source_image": "https://media.rueducommerce.fr/rd/products/148/148af263918c42b04e0e368fe23e553ccc026968.jpg",
+      "source_page": "https://www.rueducommerce.fr/p/r24060013119.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Corsair 5000D Airflow Black",
+        "brand": "Corsair",
+        "model": "5000D Airflow Black"
+      },
+      "file": "assets/products/corsair-5000d-airflow-black.webp",
+      "source_image": "https://media.rueducommerce.fr/rd/products/744/744a9b1f0e779a668fbabb6fa698a17c8352fa00.webp",
+      "source_page": "https://www.rueducommerce.fr/p/r24060014071.html"
+    },
+    {
+      "product": {
+        "category": "Cajas de PC",
+        "name": "Caja PC Lian Li LANCOOL 216 Black",
+        "brand": "Lian Li",
+        "model": "LANCOOL 216 Black"
+      },
+      "file": "assets/products/lian-li-lancool-216-black.webp",
+      "source_image": "https://www.liststone.com/images/avante/LANCOOL-216-BLACK-01.jpg?height=884&scale=canvas&trim.threshold=80&width=1176",
+      "source_page": "https://www.cclonline.com/lancool-216-black-lian-li-lancool-216-mid-tower-gaming-case-black-usb-3-0-400364/"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Logitech G G413 SE",
+        "brand": "Logitech G",
+        "model": "G413 SE"
+      },
+      "file": "assets/products/logitech-g-g413-se.webp",
+      "source_image": "https://jakov.rs/_next/image?q=75&url=http%3A%2F%2Fapi.jakov.rs%2Fstorage%2Fimages%2Fproducts%2Flogitech-g413-se-mechanical-gaming-tastatura-us-large-20241017035427000000Jhuxj.webp&w=2048",
+      "source_page": "https://jakov.rs/kategorije/gaming-tastature/proizvodi/logitech-g413-se-mechanical-gaming-keyboard-us-usb"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Logitech G G512 Carbon",
+        "brand": "Logitech G",
+        "model": "G512 Carbon"
+      },
+      "file": "assets/products/logitech-g-g512-carbon.webp",
+      "source_image": "https://assets.mydeal.com.au/48850/logitech-g512-carbon-romer-g-linear-rgb-mechanical-gaming-keyboard-16169204_00.jpg?imgclass=edrs&v=NkkiVgzXxOIJkzO",
+      "source_page": "https://www.everyday.com.au/shop/product/logitech-g512-carbon-romer-g-linear-rgb-mechanical-gaming-keyboard-16169204/16169204-1"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Logitech G G915 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G915 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g915-lightspeed.webp",
+      "source_image": "https://resource.logitech.com/content/dam/gaming/en/products/g915/g915-gallery-2.png",
+      "source_page": "https://www.logitechg.com/en-sg/products/gaming-keyboards/g915-low-profile-wireless-mechanical-gaming-keyboard.html"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Logitech G PRO X TKL LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "PRO X TKL LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-pro-x-tkl-lightspeed.webp",
+      "source_image": "https://cdn.mwave.com.au/images/400/logitech_g_pro_x_tkl_lightspeed_gaming_keyboard_black_ac68756_10237.jpg",
+      "source_page": "https://www.mwave.com.au/product/logitech-g-pro-x-tkl-lightspeed-wireless-gaming-keyboard-black-ac68756"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Corsair K55 RGB PRO",
+        "brand": "Corsair",
+        "model": "K55 RGB PRO"
+      },
+      "file": "assets/products/corsair-k55-rgb-pro.webp",
+      "source_image": "https://www.discoazul.fr/uploads/media/images/teclado-corsair-k55-rgb-pro-negro-11.jpg",
+      "source_page": "https://www.discoazul.fr/teclado-corsair-k55-rgb-pro-negro.html"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Corsair K70 CORE RGB",
+        "brand": "Corsair",
+        "model": "K70 CORE RGB"
+      },
+      "file": "assets/products/corsair-k70-core-rgb.webp",
+      "source_image": "https://assets.corsair.com/image/upload/w_400%2Ch_400%2Cc_pad%2Cq_auto%3Abest/products/Gaming-Keyboards/k70-core/Gallery/CH-910981E-UK_01.png",
+      "source_page": "https://www.corsair.com/eu/el/explorer/gamer/keyboards/tilde-key-explained-what-does-that-squiggly-little-line-mean/"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Corsair K70 RGB PRO",
+        "brand": "Corsair",
+        "model": "K70 RGB PRO"
+      },
+      "file": "assets/products/corsair-k70-rgb-pro.webp",
+      "source_image": "https://media.topachat.com/media/s1000/6407373bd971b93879486b17.webp",
+      "source_page": "https://www.topachat.com/pages/detail2_cat_est_gaming_puis_rubrique_est_wg_pccla_puis_ref_est_in20012150.html"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Corsair K65 PLUS WIRELESS",
+        "brand": "Corsair",
+        "model": "K65 PLUS WIRELESS"
+      },
+      "file": "assets/products/corsair-k65-plus-wireless.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/24/88/LD0006248884.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00655490.html"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Razer BlackWidow V4",
+        "brand": "Razer",
+        "model": "BlackWidow V4"
+      },
+      "file": "assets/products/razer-blackwidow-v4.webp",
+      "source_image": "https://www1.yohohongkong.com/images/upload/Proddb/1689828590635972290.jpg",
+      "source_page": "https://www.yohohongkong.com/zh-hk/product/88973-%E9%9B%B7%E8%9B%87-Razer-BlackWidow-V4-%E6%A9%9F%E6%A2%B0%E8%BB%B8%E9%81%8A%E6%88%B2%E9%8D%B5%E7%9B%A4-%E9%BB%83%E8%BB%B8-US-Layout-RZ03-04691800-R3M1-%E9%A6%99%E6%B8%AF%E8%A1%8C%E8%B2%A8"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Razer Huntsman V3 Pro TKL",
+        "brand": "Razer",
+        "model": "Huntsman V3 Pro TKL"
+      },
+      "file": "assets/products/razer-huntsman-v3-pro-tkl.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/09/71/LD0006097146.jpg",
+      "source_page": "https://www.ldlc.com/en/product/PB00588189.html"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado Keychron K2 Pro",
+        "brand": "Keychron",
+        "model": "K2 Pro"
+      },
+      "file": "assets/products/keychron-k2-pro.webp",
+      "source_image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/329/122/products/ban-phim-co-khong-day-keychron-k2-pro-rgb-hotswap-05.jpg?v=1719559237667",
+      "source_page": "https://memoryzone.com.vn/ban-phim-co-khong-day-keychron-k2-pro-rgb-hotswap?srsltid=AfmBOoquWKhG4Nsjdg4VOcHDc2R2EQC-u4vcZ2umB8GEfSg8-bD7NPUR"
+    },
+    {
+      "product": {
+        "category": "Teclados",
+        "name": "Teclado SteelSeries Apex Pro TKL (2023)",
+        "brand": "SteelSeries",
+        "model": "Apex Pro TKL (2023)"
+      },
+      "file": "assets/products/steelseries-apex-pro-tkl-2023.webp",
+      "source_image": "https://images.ctfassets.net/hmm5mo4qf4mf/env1xan8G9JivY6w113Zh/8db10fd841eabee597e84c4102007ae6/buyimg_apexprotkl_006_fr.png__1920x1080_crop-fit_optimize_subsampling-2-2004.png",
+      "source_page": "https://steelseries.com/gaming-keyboards/apex-pro-2023?srsltid=AfmBOorONa3F3Y73S9LavjGRaP_Ly7QB6EyAlVS8WuuCP_mfqkwRPjnU"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G G305 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G305 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g305-lightspeed.webp",
+      "source_image": "https://cdn.mwave.com.au/images/400/logitech_g305_lightspeed_wireless_gaming_mouse_black_ac37722_4.jpg",
+      "source_page": "https://www.mwave.com.au/product/logitech-g305-lightspeed-wireless-gaming-mouse-black-ac37722?srsltid=AfmBOoqS3zFDz67lRlXtv0ij-VTRzM2QP5CR0cvmAqI8Lcm9IAhI0Hmo"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G G502 X",
+        "brand": "Logitech G",
+        "model": "G502 X"
+      },
+      "file": "assets/products/logitech-g-g502-x.webp",
+      "source_image": "https://cdn11.bigcommerce.com/s-9nntib/images/stencil/1500x1500/products/96431/409253/logitech_g502_x_wired_gaming_mouse_black__92830.1755732585.jpg?c=2",
+      "source_page": "https://megaofficesupplies.com.au/logitech-g502-x-wired-gaming-mouse-black/"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G G502 X LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G502 X LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g502-x-lightspeed.webp",
+      "source_image": "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/g502x-lightspeed/gallery/g502x-lightspeed-gallery-1-black.png",
+      "source_page": "https://www.logitechg.com/de-de/products/gaming-mice/g502-x-wireless-lightforce.html"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G G502 X PLUS",
+        "brand": "Logitech G",
+        "model": "G502 X PLUS"
+      },
+      "file": "assets/products/logitech-g-g502-x-plus.webp",
+      "source_image": "https://resource.logitechg.com/w_593%2Cc_limit%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/ghub-update/2024-update/article-2024/g502-x-plus-bundle.png?v=1",
+      "source_page": "https://www.logitechg.com/en-my/g-hub-basics.html"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G PRO X SUPERLIGHT 2",
+        "brand": "Logitech G",
+        "model": "PRO X SUPERLIGHT 2"
+      },
+      "file": "assets/products/logitech-g-pro-x-superlight-2.webp",
+      "source_image": "https://www.ultrapc.ma/46387-large_banner/logitech-g-wireless-gaming-pro-x-superlight-2-white.jpg",
+      "source_page": "https://www.ultrapc.ma/16_logitech"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Logitech G G309 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G309 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g309-lightspeed.webp",
+      "source_image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/9/1/910-007206-b.png",
+      "source_page": "https://www.logitechstore.com.br/mouse-gamer-sem-fio-logitech-g309-lightspeed-branco/?srsltid=AfmBOoqlVMImUFiGDeTlv-fnqFQVawlCPm9kt8QpXR9oXKeR5Zzl2mdp"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Razer DeathAdder V3",
+        "brand": "Razer",
+        "model": "DeathAdder V3"
+      },
+      "file": "assets/products/razer-deathadder-v3.webp",
+      "source_image": "https://ecommerce.datablitz.com.ph/cdn/shop/products/0840272902998_800x.jpg?v=1677053197",
+      "source_page": "https://ecommerce.datablitz.com.ph/products/razer-deathadder-v3-ultra-lightweight-ergonomic-esports-gaming-mouse-black"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Razer DeathAdder V3 Pro",
+        "brand": "Razer",
+        "model": "DeathAdder V3 Pro"
+      },
+      "file": "assets/products/razer-deathadder-v3-pro.webp",
+      "source_image": "https://wo.ua/upload/resize_cache/iblock/99c/790_790_1/4ncl7clul4cdfdcjc819me0gv8yfjdqp.jpg",
+      "source_page": "https://wo.ua/ua/mysh-razer-deathadder-v3-pro-i-hyperpolling-wireless-dongle-rz01-04630300-r3wl.html"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Razer Basilisk V3",
+        "brand": "Razer",
+        "model": "Basilisk V3"
+      },
+      "file": "assets/products/razer-basilisk-v3.webp",
+      "source_image": "https://esportsgear.uk/cdn/shop/files/razer-basilisk-v3-gaming-mouse-uk-rz01-04000100-r3m1-4_1600x.png?v=1711683780",
+      "source_page": "https://esportsgear.uk/products/razer-basilisk-v3-gaming-mouse-uk-rz01-04000100-r3m1"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Razer Viper V3 Pro",
+        "brand": "Razer",
+        "model": "Viper V3 Pro"
+      },
+      "file": "assets/products/razer-viper-v3-pro.webp",
+      "source_image": "https://ecommerce.datablitz.com.ph/cdn/shop/files/cc_800x.jpg?v=1723195718",
+      "source_page": "https://ecommerce.datablitz.com.ph/products/razer-viper-v3-pro-ultra-lightweight-wireless-symmetrical-esports-mouse"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón SteelSeries Aerox 3 Wireless",
+        "brand": "SteelSeries",
+        "model": "Aerox 3 Wireless"
+      },
+      "file": "assets/products/steelseries-aerox-3-wireless.webp",
+      "source_image": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_89248350/fee_786_587_png",
+      "source_page": "https://www.mediamarkt.com.tr/tr/product/_steelseries-aerox-3-wireless-snow-gaming-mouse-beyaz-1218612.html"
+    },
+    {
+      "product": {
+        "category": "Ratones",
+        "name": "Ratón Corsair M65 RGB ULTRA",
+        "brand": "Corsair",
+        "model": "M65 RGB ULTRA"
+      },
+      "file": "assets/products/corsair-m65-rgb-ultra.webp",
+      "source_image": "https://assets.corsair.com/image/upload/c_pad%2Cq_85%2Ch_1100%2Cw_1100%2Cf_auto/products/Gaming-Mice/base-m65-rgb-ultra-config/Gallery/M65_RGB_ULTRA_01.webp",
+      "source_page": "https://www.corsair.com/kr/ko/p/gaming-mouse/ch-9309411-ap/m65-rgb-ultra-tunable-fps-gaming-mouse-ap-ch-9309411-ap"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor MSI G274QPF E2",
+        "brand": "MSI",
+        "model": "G274QPF E2"
+      },
+      "file": "assets/products/msi-g274qpf-e2.webp",
+      "source_image": "https://www.vedantcomputers.com/image/cache/catalog/assets/product/msi/monitor/g274qpf-e2/g274qpf-e2-1-550x550.jpg",
+      "source_page": "https://www.vedantcomputers.com/msi-27inch-g274qpf-e2?srsltid=AfmBOooVGY-5OU1oayI43XGlHIfDcqbCWoalARfo0zLYb-XPcXbL9y3N"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor MSI MAG 274QRF QD E2",
+        "brand": "MSI",
+        "model": "MAG 274QRF QD E2"
+      },
+      "file": "assets/products/msi-mag-274qrf-qd-e2.webp",
+      "source_image": "https://asset-us-store.msi.com/image/cache/catalog/Pd_page/Monitor/2023/MAG274QRFQDE2/MAG274QRFQDE2-2-400x400.png",
+      "source_page": "https://us-store.msi.com/MAG-274QRF-QD-E2"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor MSI G255F",
+        "brand": "MSI",
+        "model": "G255F"
+      },
+      "file": "assets/products/msi-g255f.webp",
+      "source_image": "https://computermania.co.za/cdn/shop/files/G255F.2.4.jpg?v=1711094723",
+      "source_page": "https://computermania.co.za/products/msi-25-g255f-full-hd-1920x1080-180hz-flat-gaming-monitor?srsltid=AfmBOopW0Q-CefwcuXlxS3Hk9w248Vayd3YCePECtLcY1LnzymdRn1-z"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor LG 27GP850-B",
+        "brand": "LG",
+        "model": "27GP850-B"
+      },
+      "file": "assets/products/lg-27gp850-b.webp",
+      "source_image": "https://www.tohome.com/images/Products/500/23092021/27GP850-B.jpg",
+      "source_page": "https://www.tohome.com/product_detail/20210900088/LG-27-UltraGear-27GP850B-Gaming-Monitor-"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor LG 27GR75Q-B",
+        "brand": "LG",
+        "model": "27GR75Q-B"
+      },
+      "file": "assets/products/lg-27gr75q-b.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/06/04/62/LD0006046242.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00559035.html"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor LG 27GS95QE-B",
+        "brand": "LG",
+        "model": "27GS95QE-B"
+      },
+      "file": "assets/products/lg-27gs95qe-b.webp",
+      "source_image": "https://image.alza.cz/products/WK0654/WK0654.jpg",
+      "source_page": "https://www.alza.cz/27-lg-ultragear-27gs95qe-b-d12377430.htm"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor Dell G2724D",
+        "brand": "Dell",
+        "model": "G2724D"
+      },
+      "file": "assets/products/dell-g2724d.webp",
+      "source_image": "https://intelliinn.blob.core.windows.net/intelliinn/files/network-container/product-images/large-images/nc-30-Jun-2024-106906e2-9363-4364-8421-336286a1c079.jpg",
+      "source_page": "https://www.networkdistri.co.uk/product/-dell-g2724d"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor Dell P2422H",
+        "brand": "Dell",
+        "model": "P2422H"
+      },
+      "file": "assets/products/dell-p2422h.webp",
+      "source_image": "https://media.stockinthechannel.com/pic/esyp1IC4W0yQPMqZ_mCpbw.r.jpg",
+      "source_page": "https://www.stockinthechannel.co.uk/Product/DELL-P2422H-60-5-cm-23-8-1920-x-1080-pixels-Full-HD-LCD-Black/67218283"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor Dell U2723QE",
+        "brand": "Dell",
+        "model": "U2723QE"
+      },
+      "file": "assets/products/dell-u2723qe.webp",
+      "source_image": "https://tanphat.com.vn/media/product/2687_dell_u2723qe.jpg",
+      "source_page": "https://tanphat.com.vn/man-hinh-may-tinh-cao-cap-dell-u2723qe-24-inch-4k-ips.html"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor ASUS TUF Gaming VG27AQ1A",
+        "brand": "ASUS",
+        "model": "TUF Gaming VG27AQ1A"
+      },
+      "file": "assets/products/asus-tuf-gaming-vg27aq1a.webp",
+      "source_image": "https://dlcdnwebimgs.asus.com/gain/c4a8a4e3-d7f2-4924-a518-89b51a967248/w692",
+      "source_page": "https://www.asus.com.cn/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg27aq1a/"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor ASUS ROG Swift PG27AQDM",
+        "brand": "ASUS",
+        "model": "ROG Swift PG27AQDM"
+      },
+      "file": "assets/products/asus-rog-swift-pg27aqdm.webp",
+      "source_image": "https://dlcdnwebimgs.asus.com.cn/gain/F6C51840-0E65-4DFE-8476-23EFBFC35F04/w1000/h732",
+      "source_page": "https://rog.asus.com.cn/monitors/27-to-31-5-inches/rog-swift-oled-pg27aqdm/gallery/"
+    },
+    {
+      "product": {
+        "category": "Monitores",
+        "name": "Monitor Samsung Odyssey G5 C27G55T",
+        "brand": "Samsung",
+        "model": "Odyssey G5 C27G55T"
+      },
+      "file": "assets/products/samsung-odyssey-g5-c27g55t.webp",
+      "source_image": "https://static.msystems.gr/photos/big_photos/45307.1.jpg",
+      "source_page": "https://www.msystems.gr/monitors/samsung-odyssey-g55t-quad-hd-27-curved-wide-led-va-144hz-1ms-with-amd-freesync-premium-hdr-ready-lc27g55tqbuxen"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares Logitech G G435 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G435 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g435-lightspeed.webp",
+      "source_image": "https://api.technodom.kz/f3/api/v1/images/800/800/257561_6.jpg",
+      "source_page": "https://www.technodom.kz/p/igrovaya-garnitura-besprovodnaya-logitech-g435-lightspeed-white-257561"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares Logitech G G733 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "G733 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-g733-lightspeed.webp",
+      "source_image": "https://hnau.imgix.net/media/catalog/product/9/8/981-000867-logitech-g733-lightspeed-gaming-headset-black_4.jpg",
+      "source_page": "https://www.harveynorman.com.au/logitech-g733-lightspeed-wireless-rgb-gaming-headset-black.html"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares Logitech G PRO X 2 LIGHTSPEED",
+        "brand": "Logitech G",
+        "model": "PRO X 2 LIGHTSPEED"
+      },
+      "file": "assets/products/logitech-g-pro-x-2-lightspeed.webp",
+      "source_image": "https://forcecom.kz/upload/iblock/337/2r8ifvcvxa8jwbtlar8kuhi1vd826hpc.png",
+      "source_page": "https://forcecom.kz/catalog/headphones/model/411760/"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares HyperX Cloud II",
+        "brand": "HyperX",
+        "model": "Cloud II"
+      },
+      "file": "assets/products/hyperx-cloud-ii.webp",
+      "source_image": "https://ca.hyperx.com/cdn/shop/files/hyperx_cloud_ii_red_3_detachable.jpg?v=1764747233",
+      "source_page": "https://ca.hyperx.com/products/hyperx-cloud-ii"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares HyperX Cloud III",
+        "brand": "HyperX",
+        "model": "Cloud III"
+      },
+      "file": "assets/products/hyperx-cloud-iii.webp",
+      "source_image": "https://cdn.shopify.com/s/files/1/0588/9527/0048/files/hyperx_cloud_iii_white_b96mxaa_main_1.jpg?v=1769675539",
+      "source_page": "https://ca.hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares HyperX Cloud III Wireless",
+        "brand": "HyperX",
+        "model": "Cloud III Wireless"
+      },
+      "file": "assets/products/hyperx-cloud-iii-wireless.webp",
+      "source_image": "https://hyperx.com/cdn/shop/files/hyperx_cloud_iii_wireless_black_77z45aa_angle_7_900x.jpg?v=1692298559",
+      "source_page": "https://play-experience.com/es-geht-auch-ohne-kabel-hyperx-cloud-iii-wireless-im-test/"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares SteelSeries Arctis Nova 1",
+        "brand": "SteelSeries",
+        "model": "Arctis Nova 1"
+      },
+      "file": "assets/products/steelseries-arctis-nova-1.webp",
+      "source_image": "https://www.maxgaming.com/bilder/artiklar/zoom/22176_1.jpg?m=1661166823",
+      "source_page": "https://www.maxgaming.com/en/wired-headset/arctis-nova-1-gaming-headset-black"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares SteelSeries Arctis Nova 5 Wireless",
+        "brand": "SteelSeries",
+        "model": "Arctis Nova 5 Wireless"
+      },
+      "file": "assets/products/steelseries-arctis-nova-5-wireless.webp",
+      "source_image": "https://yckmall.com/cdn/shop/files/SteelSeries_Arctis_Nova_5-BK_1200x.png?v=1727246720",
+      "source_page": "https://yckmall.com/products/steelseries-arctis-nova-5"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares SteelSeries Arctis Nova 7 Wireless",
+        "brand": "SteelSeries",
+        "model": "Arctis Nova 7 Wireless"
+      },
+      "file": "assets/products/steelseries-arctis-nova-7-wireless.webp",
+      "source_image": "https://www.incehesap.com/resim/og_resimler/633293c057dfb8.44152809_nkifqjhoeglmp_og.jpg",
+      "source_page": "https://www.incehesap.com/steelseries-arctis-nova-7-wireless-siyah-kablosuz-gaming-kulaklik-fiyati-58581/?srsltid=AfmBOooxZSnb299fXow6_5Y38WjilWtQM7eOm2iY-RAYjYlmy5B0jgYw"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares SteelSeries Arctis Nova Pro Wireless",
+        "brand": "SteelSeries",
+        "model": "Arctis Nova Pro Wireless"
+      },
+      "file": "assets/products/steelseries-arctis-nova-pro-wireless.webp",
+      "source_image": "https://media.ldlc.com/r1600/ld/products/00/05/95/78/LD0005957843.jpg",
+      "source_page": "https://www.ldlc.com/fiche/PB00500482.html"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares Razer BlackShark V2 X",
+        "brand": "Razer",
+        "model": "BlackShark V2 X"
+      },
+      "file": "assets/products/razer-blackshark-v2-x.webp",
+      "source_image": "https://cdn.cs.1worldsync.com/31/aa/31aabf05-1c91-4fc7-a014-b94cdce69552.jpg",
+      "source_page": "https://pp.co.nz/product/ab58200/"
+    },
+    {
+      "product": {
+        "category": "Auriculares",
+        "name": "Auriculares Corsair HS80 RGB Wireless",
+        "brand": "Corsair",
+        "model": "HS80 RGB Wireless"
+      },
+      "file": "assets/products/corsair-hs80-rgb-wireless.webp",
+      "source_image": "https://www.incehesap.com/resim/urun/202207/62c56a9ccccd94.47438258_qeimlofhnpgkj.webp",
+      "source_page": "https://www.incehesap.com/corsair-hs80-rgb-wireless-ca-9011236-eu-kablosuz-gaming-kulaklik-fiyati-57127/"
+    }
+  ]
+}

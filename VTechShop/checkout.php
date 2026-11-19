@@ -48,35 +48,21 @@ foreach ($cart as $id => $qty) {
     }
 }
 
-render_head('Finalizar Compra - VTechShop');
+render_head('Confirmar pedido · VTechShop', '', 'page-checkout');
 render_header();
 ?>
-
-<main>
-    <h1>Finalizar Compra</h1>
+<main id="main-content" class="site-main">
+    <nav class="checkout-steps" aria-label="Proceso de compra"><a href="cart.php">Carrito</a><span>/</span><strong aria-current="step">Confirmar pedido</strong></nav>
+    <div class="commerce-heading"><div><p class="eyebrow">EL ÚLTIMO PASO</p><h1>Prepara tu pedido</h1></div></div>
     <?php render_error($error_code); ?>
-
-    <form method="POST" action="checkout.php">
-        <h2>Dirección de Envío</h2>
-        <div>
-            <label for="shipping_address">Dirección completa (Calle, número, código postal, ciudad)</label><br>
-            <textarea id="shipping_address" name="shipping_address" rows="4" required placeholder="Ej: Calle Mayor 15, 2ºB, 28013 Madrid"><?= htmlspecialchars($_POST['shipping_address'] ?? '') ?></textarea>
-        </div>
-        <button type="submit">Confirmar y Pagar Pedido</button>
-    </form>
-
-    <aside>
-        <h2>Tu Pedido</h2>
-        <ul>
-            <?php foreach ($items as $item): ?>
-                <li>
-                    <span><?= $item['qty'] ?>x <?= htmlspecialchars($item['name']) ?></span> -
-                    <strong><?= format_price($item['subtotal'], $currency) ?></strong>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        <p><strong>Total a pagar: <?= format_price($total, $currency) ?></strong></p>
-    </aside>
+    <div class="commerce-layout">
+        <form method="POST" action="checkout.php" class="checkout-form">
+            <h2>Dirección de envío</h2><p class="muted">Indica dónde quieres recibir los componentes.</p>
+            <div class="form-field"><label for="shipping_address">Dirección completa</label><textarea id="shipping_address" name="shipping_address" rows="4" minlength="10" required autocomplete="street-address" placeholder="Calle, número, piso, código postal y ciudad"><?= htmlspecialchars($_POST['shipping_address'] ?? '') ?></textarea></div>
+            <button class="button button-accent" type="submit">Confirmar pedido</button>
+            <p class="detail-add-note">Al confirmar, el pedido se guardará en tu historial.</p>
+        </form>
+        <aside class="order-summary"><h2>Tu pedido</h2><ul class="summary-items"><?php foreach ($items as $item): ?><li><span><?= (int)$item['qty'] ?> × <?= htmlspecialchars($item['name']) ?></span><strong><?= format_price($item['subtotal'], $currency) ?></strong></li><?php endforeach; ?></ul><div class="summary-total"><span>Total</span><strong><?= format_price($total, $currency) ?></strong></div><a class="text-link cart-continue" href="cart.php">Editar mi carrito</a></aside>
+    </div>
 </main>
-
 <?php render_footer(); ?>

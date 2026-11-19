@@ -29,76 +29,37 @@ $available_to_add = max(0, $stock - $in_cart);
 $complements = get_complementary_products($conn, $product, 4);
 $similar = get_similar_products($conn, $product, 4);
 
-render_head($product['products_name'] . ' - VTechShop');
+render_head($product['products_name'] . ' · VTechShop', '', 'page-product');
 render_header();
 ?>
-<main>
-    <nav>
-        <a href="index.php">Catálogo</a> &rsaquo;
-        <a href="index.php?cat=<?= $product['category_id'] ?>"><?= htmlspecialchars($product['category_name']) ?></a> &rsaquo;
-        <span><?= htmlspecialchars($product['model']) ?></span>
-    </nav>
-
-    <section>
-        <?php if (!empty($product['products_image'])): ?>
-            <img src="<?= htmlspecialchars($product['products_image']) ?>" alt="<?= htmlspecialchars($product['products_name']) ?>" width="300">
-        <?php endif; ?>
-
-        <p><strong>Categoría:</strong> <?= htmlspecialchars($product['category_name']) ?></p>
-        <h1><?= htmlspecialchars($product['products_name']) ?></h1>
-        <p>
-            <strong>Marca:</strong> <?= htmlspecialchars($product['brand']) ?> |
-            <strong>Modelo:</strong> <?= htmlspecialchars($product['model']) ?>
-        </p>
-        <p><strong>Precio:</strong> <?= format_price((float)$product['price'], $currency) ?></p>
-
-        <div>
-            <?php if ($stock > 5): ?>
-                <p>En stock (<?= $stock ?> unidades disponibles)</p>
-            <?php elseif ($stock > 0): ?>
-                <p>¡Date prisa! Solo quedan <?= $stock ?> unidades</p>
-            <?php else: ?>
-                <p><strong>Producto agotado temporalmente (Sin stock)</strong></p>
-            <?php endif; ?>
+<main id="main-content" class="site-main">
+    <nav class="breadcrumb" aria-label="Ruta del producto"><a href="index.php">Catálogo</a><span>/</span><a href="index.php?cat=<?= (int)$product['category_id'] ?>"><?= htmlspecialchars($product['category_name']) ?></a><span>/</span><span><?= htmlspecialchars($product['model']) ?></span></nav>
+    <article class="product-detail">
+        <div class="product-visual">
+            <?php render_product_media($product, '', true); ?>
+            <div class="product-reference"><span><?= htmlspecialchars($product['category_name']) ?></span><span>Ref. <?= str_pad((string)$id, 4, '0', STR_PAD_LEFT) ?></span></div>
         </div>
-
-        <div>
-            <h3>Descripción y especificaciones</h3>
-            <p><?= nl2br(htmlspecialchars($product['products_description'] ?? 'Sin descripción adicional.')) ?></p>
-        </div>
-
-        <div>
+        <div class="product-info">
+            <p class="eyebrow"><?= htmlspecialchars($product['brand']) ?></p>
+            <h1><?= htmlspecialchars($product['products_name']) ?></h1>
+            <p class="detail-price"><?= format_price((float)$product['price'], $currency) ?></p>
+            <p class="availability <?= $stock <= 0 ? 'out' : '' ?>"><?= $stock > 0 ? 'En stock · ' . $stock . ' unidades disponibles' : 'Producto agotado' ?></p>
+            <dl class="spec-list"><dt>Marca</dt><dd><?= htmlspecialchars($product['brand']) ?></dd><dt>Modelo</dt><dd><?= htmlspecialchars($product['model']) ?></dd><dt>Categoría</dt><dd><?= htmlspecialchars($product['category_name']) ?></dd></dl>
             <?php if ($available_to_add > 0): ?>
-                <label for="detail-qty">Cantidad:</label>
-                <input id="detail-qty" type="number" value="1" min="1" max="<?= $available_to_add ?>">
-                <button type="button" class="js-detail-add" data-id="<?= $id ?>">
-                    Añadir al carrito
-                </button>
-                <a href="cart.php">Ir al carrito</a>
+                <div class="purchase-controls"><div class="quantity-field"><label for="detail-qty">Cantidad</label><input id="detail-qty" type="number" value="1" min="1" max="<?= $available_to_add ?>" required></div><button type="button" class="js-detail-add button button-accent" data-id="<?= $id ?>"><?= get_icon('bag') ?> Añadir al carrito</button></div>
+                <a class="text-link detail-cart-link" href="cart.php">Ver mi carrito</a>
+                <?php if ($in_cart > 0): ?><p class="detail-add-note">Ya tienes <?= $in_cart ?> unidades en tu carrito.</p><?php endif; ?>
             <?php elseif ($stock > 0): ?>
-                <p>Ya tienes en tu carrito el máximo de unidades disponibles (<?= $in_cart ?>).</p>
-                <a href="cart.php">Ver mi carrito</a>
-            <?php else: ?>
-                <button type="button" disabled>Sin stock disponible</button>
-            <?php endif; ?>
+                <p class="detail-add-note">Ya tienes las <?= $in_cart ?> unidades disponibles en tu carrito.</p><a class="button" href="cart.php">Ver mi carrito</a>
+            <?php else: ?><button type="button" class="button" disabled>Sin stock disponible</button><?php endif; ?>
+            <div class="detail-description"><h2>Descripción y especificaciones</h2><p><?= nl2br(htmlspecialchars($product['products_description'] ?? 'Sin descripción adicional.')) ?></p></div>
         </div>
-    </section>
-
-    <?php if (!empty($complements) || !empty($similar)): ?>
-        <hr>
-        <?php
-        $similar_subtitle = $stock > 0
-            ? 'Otras opciones de la misma categoría y de precio parecido'
-            : 'Este producto está agotado; estas opciones sí están disponibles';
-        ?>
-        <?php if ($stock <= 0): ?>
-            <?php render_product_section('Alternativas disponibles', $similar_subtitle, $similar, $currency); ?>
-        <?php endif; ?>
-        <?php render_product_section('Completa tu equipo', 'Productos compatibles seleccionados para este artículo', $complements, $currency); ?>
-        <?php if ($stock > 0): ?>
-            <?php render_product_section('Alternativas similares', $similar_subtitle, $similar, $currency); ?>
-        <?php endif; ?>
-    <?php endif; ?>
+    </article>
+    <?php
+    $similar_subtitle = $stock > 0 ? 'Misma categoría y un precio parecido' : 'Estas alternativas sí tienen stock disponible';
+    if ($stock <= 0) render_product_section('Alternativas disponibles', $similar_subtitle, $similar, $currency);
+    render_product_section('Completa tu equipo', 'Sugerencias según la categoría y los datos técnicos disponibles', $complements, $currency);
+    if ($stock > 0) render_product_section('Alternativas similares', $similar_subtitle, $similar, $currency);
+    ?>
 </main>
-
 <?php render_footer(); ?>

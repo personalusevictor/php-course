@@ -33,45 +33,53 @@ try {
     $error_code = $e->getMessage();
 }
 
-render_head('VTechShop - Componentes Informáticos');
-render_header()
+$selected_name = 'Todos los componentes';
+foreach ($categories as $category) {
+    if ((int)$category['category_id'] === $selected_cat) $selected_name = $category['category_name'];
+}
+$category_counts = [];
+if (!$selected_cat) foreach ($grouped_catalog as $group) $category_counts[$group['id']] = count($group['products']);
+
+render_head('VTechShop · Tu equipo, pieza a pieza', '', 'page-catalog');
+render_header();
 ?>
-<main>
-    <nav>
-        <a href="index.php"><?= !$selected_cat ? '<strong>Todas las categorías</strong>' : 'Todas las categorías' ?></a>
-        <?php foreach ($categories as $cat): ?>
-            <a href="index.php?cat=<?= $cat['category_id'] ?>"><?= $selected_cat === (int)$cat['category_id'] ? '<strong>' . htmlspecialchars($cat['category_name']) . '</strong>' : htmlspecialchars($cat['category_name']) ?></a>
-        <?php endforeach; ?>
-    </nav>
-
-    <?php render_error($error_code); ?>
-
-    <?php if (!$selected_cat): ?>
-        <?php render_product_section('Vistos recientemente', null, $recent, $currency); ?>
-        <?php [$rec_title, $rec_subtitle] = $recommendation_headings[$recommendations['mode']] ?? ['', null]; ?>
-        <?php render_product_section($rec_title, $rec_subtitle, $recommendations['products'], $currency); ?>
-    <?php endif; ?>
-
-    <?php if (empty($grouped_catalog)): ?>
-        <div>
-            <p>No hay productos disponibles en esta categoría.</p>
-            <a href="index.php">Ver todo el catálogo</a>
+<main id="main-content" class="site-main">
+    <div class="catalog-layout" id="catalogo">
+        <aside class="catalog-sidebar">
+            <div class="sidebar-heading"><h2>Categorías</h2><span><?= count($categories) ?></span></div>
+            <nav class="category-nav" aria-label="Categorías de componentes">
+                <a href="index.php#catalogo" class="<?= !$selected_cat ? 'is-active' : '' ?>" <?= !$selected_cat ? 'aria-current="page"' : '' ?>><?= get_icon('grid') ?><span>Todos los componentes</span></a>
+                <?php foreach ($categories as $cat): ?>
+                <a href="index.php?cat=<?= (int)$cat['category_id'] ?>#catalogo" class="<?= $selected_cat === (int)$cat['category_id'] ? 'is-active' : '' ?>" <?= $selected_cat === (int)$cat['category_id'] ? 'aria-current="page"' : '' ?>>
+                    <img src="assets/illustrations/<?= category_art($cat['category_name']) ?>.svg" alt="" width="36" height="27"><span><?= htmlspecialchars($cat['category_name']) ?></span>
+                    <?php if (isset($category_counts[$cat['category_id']])): ?><small><?= $category_counts[$cat['category_id']] ?></small><?php endif; ?>
+                </a>
+                <?php endforeach; ?>
+            </nav>
+        </aside>
+        <div class="catalog-content">
+            <?php render_error($error_code); ?>
+            <?php if (!$selected_cat): ?>
+                <h1 class="sr-only">Catálogo de componentes y periféricos</h1>
+                <?php [$rec_title, $rec_subtitle] = $recommendation_headings[$recommendations['mode']] ?? ['', null]; ?>
+                <?php render_product_section($rec_title, $rec_subtitle, $recommendations['products'], $currency); ?>
+                <?php render_product_section('Vuelve a echarles un vistazo', 'Tus productos vistos recientemente', $recent, $currency); ?>
+            <?php else: ?>
+                <div class="page-heading"><p class="eyebrow">CATÁLOGO</p><h1><?= htmlspecialchars($selected_name) ?></h1><p><?= count($products) ?> productos</p></div>
+            <?php endif; ?>
+            <?php if (empty($grouped_catalog)): ?>
+                <div class="empty-state"><?= get_icon('grid') ?><h2>No hay productos en esta categoría</h2><a class="button" href="index.php">Ver todo el catálogo</a></div>
+            <?php else: ?>
+                <?php foreach ($grouped_catalog as $category): ?>
+                <section class="product-section category-section">
+                    <div class="section-heading"><div><h2><?= htmlspecialchars($category['name']) ?></h2><p><?= htmlspecialchars($category['description'] ?? '') ?></p></div><span class="section-count"><?= count($category['products']) ?> productos</span></div>
+                    <div class="product-grid">
+                        <?php foreach ($category['products'] as $product) render_product_card($product, '', $currency); ?>
+                    </div>
+                </section>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
-    <?php else: ?>
-        <?php foreach ($grouped_catalog as $category): ?>
-            <section>
-                <h2><?= htmlspecialchars($category['name']) ?></h2>
-                <?php if (!empty($category['description'])): ?>
-                    <p><?= htmlspecialchars($category['description']) ?></p>
-                <?php endif; ?>
-                <div>
-                    <?php foreach ($category['products'] as $product): ?>
-                        <?php render_product_card($product, '', $currency); ?>
-                    <?php endforeach; ?>
-                </div>
-            </section>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    </div>
 </main>
-
 <?php render_footer(); ?>

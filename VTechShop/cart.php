@@ -57,6 +57,7 @@ foreach ($cart as $id => $quantity) {
     $items[] = [
         'id' => (int)$id,
         'name' => $product['products_name'],
+        'product' => $product,
         'price' => (float)$product['price'],
         'qty' => $quantity,
         'stock' => $stock,
@@ -69,70 +70,40 @@ if ($adjusted) {
 }
 $cart_recommendations = !empty($items) ? get_cart_recommendations($conn, 4) : [];
 
-render_head('Carrito de Compra - VTechShop');
+render_head('Tu carrito · VTechShop', '', 'page-cart');
 render_header();
 ?>
-<main>
-    <h1>Tu Carrito de Compra</h1>
-    <?php if ($adjusted): ?>
-        <p><strong>Aviso: </strong>Algunos productos de tu carrito han sido ajustado debido a cambios recientes en el stock disponible.</p>
-    <?php endif; ?>
+<main id="main-content" class="site-main">
+    <div class="commerce-heading"><div><p class="eyebrow">TU PRÓXIMO EQUIPO</p><h1>Tu carrito</h1></div><?php if ($items): ?><p><?= array_sum(array_column($items, 'qty')) ?> <?= array_sum(array_column($items, 'qty')) === 1 ? 'unidad' : 'unidades' ?> · <?= count($items) ?> <?= count($items) === 1 ? 'producto' : 'productos' ?></p><?php endif; ?></div>
+    <?php if ($adjusted): ?><div class="alert" role="status">Hemos ajustado algunos productos del carrito al stock disponible.</div><?php endif; ?>
     <?php if (empty($items)): ?>
-        <div>
-            <p>Tu carrito está vacío en este momento.</p>
-            <a href="index.php">Explorar componentes</a>
-        </div>
+        <div class="empty-state"><?= get_icon('bag') ?><h2>Aún no hay piezas en tu carrito</h2><p>Explora el catálogo y añade los componentes de tu próximo equipo.</p><a class="button button-accent" href="index.php">Explorar componentes</a></div>
     <?php else: ?>
-        <ul>
-            <?php foreach ($items as $item): ?>
-                <?php if (!empty($item['image'])): ?>
-                    <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
-                <?php endif; ?>
-                <h3><a href="products.php?id=<?= $item['id'] ?>"><?= htmlspecialchars($item['name']) ?></a></h3>
-                <p>Precio unitario: <?= format_price($item['price'], $currency) ?>(Stock disponible <?= $item['stock'] ?> uds.)</p>
-
-                <form action="cart.php" method="post">
-                    <input type="hidden" name="action" value="update" />
-                    <input type="hidden" name="product_id" value="<?= $item['id'] ?>" />
-                    <input type="hidden" name="quantity" value="<?= $item['qty'] - 1 ?>" />
-                    <input type="submit" value="-" />
-                </form>
-                <strong><?= $item['qty'] ?></strong>
-
-                <form action="cart.php" method="post">
-                    <input type="hidden" name="action" value="update" />
-                    <input type="hidden" name="product_id" value="<?= $item['id'] ?>" />
-                    <input type="hidden" name="quantity" value="<?= $item['qty'] + 1 ?>" />
-                    <input type="submit" value="+" <?= $item['qty'] >= $item['stock'] ? 'disabled' : '' ?> />
-                </form>
-
-                <p>Subtotal: <strong><?= format_price($item['subtotal'], $currency) ?></strong></p>
-
-                <form action="cart.php" method="post">
-                    <input type="hidden" name="action" value="remove">
-                    <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
-                    <input type="submit" value="Eliminar">
-                </form>
-            <?php endforeach; ?>
-        </ul>
-
-        <aside>
-            <h2>Resumen del Pedido</h2>
-            <p>Productos (<?= array_sum(array_column($items, 'qty')) ?>): <?= format_price($total, $currency) ?></p>
-            <p>Envío: Gratis</p>
-            <p><strong>Total IVA incluido: <?= format_price($total, $currency) ?></strong></p>
-
-            <?php if (is_logged_in()): ?>
-                <a href="checkout.php">Tramitar Pedido</a>
-            <?php else: ?>
-                <p>Inicia sesión para finalizar tu compra.</p>
-                <a href="auth/auth-page.php?redirect=checkout">Inicia Sesión y Comprar</a>
-            <?php endif; ?>
-            <a href="index.php">Seguir comprando</a>
-        </aside>
-
-        <?php render_product_section('Completa tu pedido', 'Compatibles con lo que ya tienes en el carrito', $cart_recommendations, $currency); ?>
+        <div class="commerce-layout">
+            <div>
+                <ul class="cart-items">
+                <?php foreach ($items as $item): ?>
+                    <li class="cart-item">
+                        <a href="products.php?id=<?= $item['id'] ?>" tabindex="-1" aria-hidden="true"><?php render_product_media($item['product']); ?></a>
+                        <div class="cart-item-info"><h2><a href="products.php?id=<?= $item['id'] ?>"><?= htmlspecialchars($item['name']) ?></a></h2><p><?= format_price($item['price'], $currency) ?> / unidad · Stock: <?= $item['stock'] ?></p>
+                            <div class="quantity-controls" role="group" aria-label="Cantidad de <?= htmlspecialchars($item['name']) ?>">
+                                <form action="cart.php" method="post"><input type="hidden" name="action" value="update"><input type="hidden" name="product_id" value="<?= $item['id'] ?>"><input type="hidden" name="quantity" value="<?= $item['qty'] - 1 ?>"><button type="submit" aria-label="Restar una unidad"><?= get_icon('minus') ?></button></form>
+                                <strong><?= $item['qty'] ?></strong>
+                                <form action="cart.php" method="post"><input type="hidden" name="action" value="update"><input type="hidden" name="product_id" value="<?= $item['id'] ?>"><input type="hidden" name="quantity" value="<?= $item['qty'] + 1 ?>"><button type="submit" aria-label="Sumar una unidad" <?= $item['qty'] >= $item['stock'] ? 'disabled' : '' ?>><?= get_icon('plus') ?></button></form>
+                            </div>
+                        </div>
+                        <div class="cart-item-end"><strong class="cart-line-total"><?= format_price($item['subtotal'], $currency) ?></strong><form action="cart.php" method="post"><input type="hidden" name="action" value="remove"><input type="hidden" name="product_id" value="<?= $item['id'] ?>"><button class="remove-button" type="submit" aria-label="Eliminar <?= htmlspecialchars($item['name']) ?>"><?= get_icon('trash') ?> Eliminar</button></form></div>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
+                <a class="text-link cart-continue" href="index.php">Seguir explorando el catálogo</a>
+            </div>
+            <aside class="order-summary"><h2>Resumen del pedido</h2><div class="summary-row"><span>Productos (<?= array_sum(array_column($items, 'qty')) ?>)</span><span><?= format_price($total, $currency) ?></span></div><div class="summary-total"><span>Total</span><strong><?= format_price($total, $currency) ?></strong></div>
+                <?php if (is_logged_in()): ?><a class="button button-accent" href="checkout.php">Tramitar pedido</a><?php else: ?><a class="button button-accent" href="auth/auth-page.php?redirect=checkout">Acceder y tramitar pedido</a><p class="muted">Necesitas una cuenta para guardar tu pedido.</p><?php endif; ?>
+                <p class="muted">Tu carrito se conserva en este navegador durante 30 días.</p>
+            </aside>
+        </div>
+        <div class="cart-recommendations"><?php render_product_section('Completa tu pedido', 'Sugerencias a partir de los componentes del carrito', $cart_recommendations, $currency); ?></div>
     <?php endif; ?>
 </main>
-
 <?php render_footer(); ?>

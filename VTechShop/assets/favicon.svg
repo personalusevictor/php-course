@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>VTechShop</title><defs><linearGradient id="g" x1="10" y1="20" x2="54" y2="62" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff8a4a"/><stop offset="1" stop-color="#ff5a1f"/></linearGradient></defs>
+<path d="M17 28C17 6 47 6 47 28" fill="none" stroke="#17191b" stroke-width="6" stroke-linecap="round"/>
+<rect x="6" y="24" width="52" height="36" rx="14" fill="url(#g)"/>
+<circle cx="23.5" cy="39" r="4" fill="#17191b"/><circle cx="40.5" cy="39" r="4" fill="#17191b"/>
+<path d="M24 49.5q8 6.5 16 0" fill="none" stroke="#17191b" stroke-width="4" stroke-linecap="round"/>
+<circle cx="17" cy="29" r="3" fill="#fff"/><circle cx="47" cy="29" r="3" fill="#fff"/></svg>
